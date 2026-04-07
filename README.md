@@ -46,7 +46,7 @@ O projeto foi construído utilizando uma stack robusta e de mercado, visando per
 
 O design da aplicação foi pensado para ser intuitivo e focado na agilidade do dia a dia da clínica veterinária, reduzindo a curva de aprendizado dos funcionários.
 
-![Prévia do Dashboard](link-da-sua-imagem-aqui.jpg)
+![Prévia do Dashboard](https://github.com/user-attachments/assets/632388b4-6449-4d80-b2e9-fbf5b686d602)
 
 🔗 **[Acessar o protótipo completo no Figma](https://www.figma.com/make/8uLDzoqZsqzk8zLYMic0pg/Veterinary-Management-Dashboard-Wireframe?t=HzyuMSq0NA6IXz63-1&preview-route=%2Frelatorios)**
 
