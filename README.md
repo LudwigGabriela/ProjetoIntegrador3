@@ -42,6 +42,14 @@ O projeto foi construído utilizando uma stack robusta e de mercado, visando per
 * **Framework UI:** Bootstrap (Garantindo responsividade e uma interface clara e intuitiva)
 * **Banco de Dados:** PostgreSQL (Para armazenamento seguro e relacional, garantindo a integridade do histórico e rastreabilidade)
 
+## 🎨 Interface (UI/UX)
+
+O design da aplicação foi pensado para ser intuitivo e focado na agilidade do dia a dia da clínica veterinária, reduzindo a curva de aprendizado dos funcionários.
+
+![Prévia do Dashboard](link-da-sua-imagem-aqui.jpg)
+
+🔗 **[Acessar o protótipo completo no Figma](https://www.figma.com/make/8uLDzoqZsqzk8zLYMic0pg/Veterinary-Management-Dashboard-Wireframe?t=HzyuMSq0NA6IXz63-1&preview-route=%2Frelatorios)**
+
 ## 👥 Equipe de Desenvolvimento
 
 Este projeto foi desenvolvido por uma equipe multidisciplinar, aplicando metodologias ágeis e boas práticas de engenharia de software:
