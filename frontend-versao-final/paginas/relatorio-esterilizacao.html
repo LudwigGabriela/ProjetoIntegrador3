@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VetTrace - Relatórios e Compliance ANVISA</title>
+    <title>VetTrace - Relatório de Esterilização</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../estilos/styles.css">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
     <!-- Sidebar Fixa -->
     <aside class="sidebar-fixed">
         <div class="sidebar-header">
-            <img src="logo-vet-trace.png" alt="Logo" style="height: 40px; width: auto;">
+            <img src="../assets/logo-vet-trace.png" alt="Logo" style="height: 40px; width: auto;">
             <div>
                 <h1>VetTrace</h1>
                 <p>Sistema de Rastreabilidade Clínica</p>
@@ -65,8 +65,8 @@
                 <span>Relatórios</span>
             </a>
             <div class="submenu">
-                <a href="relatorio-esterilizacao.html" class="submenu-item">Relatório de Esterilização</a>
-                <a href="relatorios.html" class="submenu-item active">Relatório de Resíduos</a>
+                <a href="relatorio-esterilizacao.html" class="submenu-item active">Relatório de Esterilização</a>
+                <a href="relatorios.html" class="submenu-item">Relatório de Resíduos</a>
             </div>
         </nav>
 
@@ -105,8 +105,8 @@
             <!-- Top Bar -->
             <div class="main-header">
                 <div class="header-text">
-                    <h2>RELATÓRIOS E COMPLIANCE ANVISA</h2>
-                    <p>CONSOLIDAÇÃO MENSAL DE RESÍDUOS SÓLIDOS - OUTUBRO 2023</p>
+                    <h2>RELATÓRIO DE MATERIAL ESTERILIZADO</h2>
+                    <p>CONSOLIDAÇÃO SEMESTRAL - JANEIRO A JUNHO 2026</p>
                 </div>
                 <div style="display: flex; gap: 1rem; align-items: center;">
                     <a href="solicitar-material.html" class="btn-magenta" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 0.75rem; font-weight: 700;">
@@ -123,7 +123,7 @@
                             <line x1="8" y1="2" x2="8" y2="6"></line>
                             <line x1="3" y1="10" x2="21" y2="10"></line>
                         </svg>
-                        Outubro / 2023
+                        Filtrar Período
                     </button>
                 </div>
             </div>
@@ -133,27 +133,40 @@
                 <!-- KPIs -->
                 <div class="kpi-grid">
                     <div class="kpi-card">
-                        <p class="kpi-label">Total Geral Descartado</p>
+                        <p class="kpi-label">Total de Kits Processados</p>
                         <div class="kpi-value-container">
-                            <span class="kpi-value">286.5</span>
-                            <span class="kpi-unit">kg</span>
+                            <span class="kpi-value">1,698</span>
                         </div>
                     </div>
 
                     <div class="kpi-card">
-                        <p class="kpi-label">Média Semanal</p>
+                        <p class="kpi-label">Média Mensal</p>
                         <div class="kpi-value-container">
-                            <span class="kpi-value">71.6</span>
-                            <span class="kpi-unit">kg</span>
+                            <span class="kpi-value">283</span>
+                            <span class="kpi-unit">kits/mês</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <p class="kpi-label">Ciclo Médio</p>
+                        <div class="kpi-value-container">
+                            <span class="kpi-value">3.98</span>
+                            <span class="kpi-unit">dias</span>
                         </div>
                     </div>
 
                     <div class="kpi-card alert">
-                        <p class="kpi-label alert-text">ÚLTIMA COLETA</p>
+                        <p class="kpi-label alert-text">
+                            <svg class="icon-btn" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                <polyline points="17 6 23 6 23 12"></polyline>
+                            </svg>
+                            EFICIÊNCIA GERAL
+                        </p>
                         <div class="kpi-value-container">
-                            <span class="kpi-value" style="font-size: 1.5rem; color: #000000;">Empresa ABC</span>
+                            <span class="kpi-value alert-value">99.0%</span>
                         </div>
-                        <p class="kpi-subtext kpi-subtext-alert">15/10/2023 - 14:30</p>
                     </div>
                 </div>
 
@@ -161,33 +174,35 @@
                 <div class="charts-grid">
                     <div class="chart-card">
                         <div class="chart-header">
-                            <h3>Peso Total por Grupo</h3>
+                            <h3>Evolução Mensal de Esterilização</h3>
                         </div>
                         <div class="chart-container">
-                            <canvas id="groupDonutChart"></canvas>
+                            <canvas id="monthlyEvolutionChart"></canvas>
                         </div>
                     </div>
                     <div class="chart-card">
                         <div class="chart-header">
-                            <h3>Geração de Resíduos Semanal</h3>
+                            <h3>Distribuição por Tipo - Junho</h3>
                         </div>
                         <div class="chart-container">
-                            <canvas id="weeklyBarChart"></canvas>
+                            <canvas id="typeDistributionChart"></canvas>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tabela de Histórico -->
+                <!-- Tabela Detalhada -->
                 <div class="section-card">
+                    <div class="section-header">
+                        <h3>DADOS DETALHADOS POR MÊS</h3>
+                    </div>
                     <table>
                         <thead>
                             <tr>
-                                <th>Data</th>
-                                <th>Tipo</th>
-                                <th>Peso (kg)</th>
-                                <th>Usuário Logado</th>
-                                <th>MTR Gerado</th>
-                                <th>Empresa Coletora</th>
+                                <th>Período</th>
+                                <th>Total de Kits</th>
+                                <th>Ciclo Médio</th>
+                                <th>Eficiência</th>
+                                <th>Responsável</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -196,47 +211,29 @@
                     </table>
                 </div>
 
-                <!-- Conformidade e Ações -->
-                <div class="footer-compliance">
-                    <div class="compliance-box">
-                        <svg class="compliance-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.5">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="12" y1="16" x2="12" y2="12"></line>
-                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                        </svg>
-                        <p class="compliance-text">
-                            Este relatório atesta que todos os procedimentos de descarte de resíduos realizados no
-                            período
-                            estão em plena conformidade com a <strong>Resolução RDC nº 222/2018 da ANVISA</strong>,
-                            garantindo a segurança sanitária e ambiental da clínica.
-                        </p>
-                    </div>
-
-                    <div class="footer-actions-row">
-                        <p class="generation-metadata">Relatório gerado em: 15/10/2023 às 16:45</p>
-                        <div class="final-buttons">
-                            <button class="btn btn-print">
-                                <svg class="icon-btn" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.5">
-                                    <polyline points="6 9 6 2 18 2 18 9"></polyline>
-                                    <path
-                                        d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2">
-                                    </path>
-                                    <rect x="6" y="14" width="12" height="8"></rect>
-                                </svg>
-                                IMPRIMIR
-                            </button>
-                            <button class="btn btn-pdf">
-                                <svg class="icon-btn" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.5">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                    <polyline points="7 10 12 15 17 10"></polyline>
-                                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                                </svg>
-                                GERAR PDF PARA FISCALIZAÇÃO MUNICIPAL
-                            </button>
-                        </div>
+                <!-- Footer -->
+                <div class="footer-actions-row">
+                    <p class="generation-metadata">Relatório gerado em: 06/04/2026 às 14:23</p>
+                    <div class="final-buttons">
+                        <button class="btn btn-print">
+                            <svg class="icon-btn" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2">
+                                </path>
+                                <rect x="6" y="14" width="12" height="8"></rect>
+                            </svg>
+                            IMPRIMIR
+                        </button>
+                        <button class="btn btn-pdf">
+                            <svg class="icon-btn" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            GERAR PDF DO RELATÓRIO
+                        </button>
                     </div>
                 </div>
 
@@ -246,6 +243,7 @@
             © 2026 VetTrace. Projeto Integrador III.
         </footer>
     </main>
+
 
 
 </body>
