@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VetTrace - Estoque Estéril</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <!-- Sidebar Fixa -->
+    <aside class="sidebar-fixed">
+        <div class="sidebar-header">
+            <img src="logo-vet-trace.png" alt="Logo" style="height: 40px; width: auto;">
+            <div>
+                <h1>VetTrace</h1>
+                <p>Sistema de Rastreabilidade Clínica</p>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <rect x="3" y="3" width="7" height="7" />
+                    <rect x="14" y="3" width="7" height="7" />
+                    <rect x="14" y="14" width="7" height="7" />
+                    <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                <span>Dashboard</span>
+            </a>
+            <a href="estoque-esteril.html" class="nav-item active">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path
+                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                    <line x1="12" y1="22.08" x2="12" y2="12" />
+                </svg>
+                <span>Estoque Estéril</span>
+            </a>
+            <a href="solicitar-material.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                </svg>
+                <span>Solicitar Material</span>
+            </a>
+            <a href="descarte-residuos.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="3 6 5 6 21 6" />
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                </svg>
+                <span>Descarte de Resíduos</span>
+            </a>
+            <a href="relatorios.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                </svg>
+                <span>Relatórios</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">US</div>
+                <div class="user-details">
+                    <p class="user-name">Usuário SILVA</p>
+                    <p class="user-role">Veterinário</p>
+                </div>
+            </div>
+            <div class="footer-actions">
+                <a href="perfil.html" class="footer-btn">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Perfil
+                </a>
+                <a href="login.html" class="footer-btn">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Sair
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Painel de Conteúdo -->
+    <main class="content-panel">
+        <div class="main-card">
+
+            <!-- Top Bar -->
+            <div class="main-header">
+                <h2>PAINEL DE ESTOQUE ESTÉRIL DISPONÍVEL</h2>
+                <a href="solicitar-material.html" class="btn-magenta" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 0.75rem; font-weight: 700;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width: 1.125rem; height: 1.125rem;">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    SOLICITAR MATERIAL
+                </a>
+            </div>
+
+            <div class="main-body">
+
+                <!-- KPIs de Resumo -->
+                <div class="kpi-grid">
+                    <!-- Kits Cirúrgicos Ready -->
+                    <div class="kpi-card">
+                        <p class="kpi-label">Kits Cirúrgicos Ready</p>
+                        <div class="kpi-value-container">
+                            <span class="kpi-value">28</span>
+                            <span class="kpi-unit">disponíveis</span>
+                        </div>
+                    </div>
+
+                    <!-- Alerta de Validade -->
+                    <div class="kpi-card alert">
+                        <p class="kpi-label alert-text">
+                            <svg class="small-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            ALERTA DE VALIDADE (VENCIMENTO PRÓXIMO)
+                        </p>
+                        <div class="kpi-value-container">
+                            <span class="kpi-value alert-value">3</span>
+                            <span class="kpi-unit">kits</span>
+                        </div>
+                    </div>
+
+                    <!-- Em Uso Atualmente -->
+                    <div class="kpi-card">
+                        <p class="kpi-label">Em Uso Atualmente</p>
+                        <div class="kpi-value-container">
+                            <span class="kpi-value">5</span>
+                            <span class="kpi-unit">kits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Barra de Ações -->
+                <div class="actions-bar">
+                    <div class="search-container">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" class="search-input" placeholder="Buscar kit por ID, nome ou tipo...">
+                    </div>
+                    <button class="btn-magenta">+ REGISTRAR NOVO KIT</button>
+                </div>
+
+                <!-- Tabela de Dados -->
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID Kit</th>
+                                <th>Nome do Kit</th>
+                                <th>Tipo</th>
+                                <th>Lote de Esterilização</th>
+                                <th>Data de Esterilização</th>
+                                <th>Validade</th>
+                                <th>Status</th>
+                                <th>Responsável</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Rodapé de Ação -->
+                <div class="footer-action-container">
+                    <a href="solicitar-material.html" class="btn-magenta btn-large" style="text-decoration: none; display: inline-block; text-align: center;">SOLICITAR MATERIAL PARA USO</a>
+                </div>
+
+            </div>
+        </div>
+        <footer class="copyright">
+            © 2026 VetTrace. Projeto Integrador III.
+        </footer>
+    </main>
+
+</body>
+
+</html>

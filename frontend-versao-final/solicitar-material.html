@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VetTrace - Solicitar Material</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Sidebar Fixa -->
+    <aside class="sidebar-fixed">
+        <div class="sidebar-header">
+            <img src="logo-vet-trace.png" alt="Logo" style="height: 40px; width: auto;">
+            <div>
+                <h1>VetTrace</h1>
+                <p>Sistema de Rastreabilidade Clínica</p>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <rect x="3" y="3" width="7" height="7" />
+                    <rect x="14" y="3" width="7" height="7" />
+                    <rect x="14" y="14" width="7" height="7" />
+                    <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                <span>Dashboard</span>
+            </a>
+            <a href="estoque-esteril.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path
+                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                    <line x1="12" y1="22.08" x2="12" y2="12" />
+                </svg>
+                <span>Estoque Estéril</span>
+            </a>
+            <a href="solicitar-material.html" class="nav-item active">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                </svg>
+                <span>Solicitar Material</span>
+            </a>
+            <a href="descarte-residuos.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="3 6 5 6 21 6" />
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                </svg>
+                <span>Descarte de Resíduos</span>
+            </a>
+            <a href="relatorios.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                </svg>
+                <span>Relatórios</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">US</div>
+                <div class="user-details">
+                    <p class="user-name">Usuário SILVA</p>
+                    <p class="user-role">Veterinário</p>
+                </div>
+            </div>
+            <div class="footer-actions">
+                <a href="perfil.html" class="footer-btn">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Perfil
+                </a>
+                <a href="login.html" class="footer-btn">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Sair
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Painel de Conteúdo -->
+    <main class="content-panel">
+        <div class="main-card">
+
+            <!-- Top Bar -->
+            <div class="main-header">
+                <h2>SOLICITAÇÃO DE MATERIAIS CIRÚRGICOS</h2>
+            </div>
+
+            <div class="main-body">
+
+                <!-- KPIs -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <p class="kpi-label">Total Solicitado (Mês)</p>
+                        <div class="kpi-value-container">
+                            <span class="kpi-value">124</span>
+                            <span class="kpi-unit">itens</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card alert">
+                        <p class="kpi-label alert-text">
+                            <svg class="small-icon" style="width: 1.125rem; height: 1.125rem;" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="3">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            PEDIDOS PENDENTES
+                        </p>
+                        <div class="kpi-value-container">
+                            <span class="kpi-value alert-value">8</span>
+                            <span class="kpi-unit">em aberto</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <p class="kpi-label">Tempo Médio de Atendimento</p>
+                        <div class="kpi-value-container">
+                            <span class="kpi-value">1.5</span>
+                            <span class="kpi-unit">horas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário de Solicitação -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path d="M12 5v14M5 12h14" />
+                        </svg>
+                        <h3>NOVA SOLICITAÇÃO DE MATERIAL</h3>
+                    </div>
+                    <div class="section-body">
+                        <div class="form-row">
+                            <div class="form-group flex-60">
+                                <label class="form-label">Material / Kit Desejado</label>
+                                <select class="form-control">
+                                    <option value="" disabled selected>Selecione o material ou kit</option>
+                                    <option value="1">Kit Cirúrgico Ortopédico</option>
+                                    <option value="2">Kit Dental Completo</option>
+                                    <option value="3">Kit Emergência</option>
+                                    <option value="4">Seringas 5ml (Caixa 50un)</option>
+                                    <option value="5">Gaze Estéril (Pacote)</option>
+                                </select>
+                            </div>
+                            <div class="form-group flex-40">
+                                <label class="form-label">Quantidade</label>
+                                <input type="number" class="form-control" value="1" min="1">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group flex-60">
+                                <label class="form-label">Prioridade</label>
+                                <select class="form-control">
+                                    <option value="baixa">Baixa - Rotina</option>
+                                    <option value="media" selected>Média - Procedimento Agendado</option>
+                                    <option value="alta">Alta - Urgência Clínica</option>
+                                </select>
+                            </div>
+                            <div class="form-group flex-40">
+                                <label class="form-label">Setor Destino</label>
+                                <select class="form-control">
+                                    <option value="cirurgia">Centro Cirúrgico</option>
+                                    <option value="ambulatorio">Ambulatório</option>
+                                    <option value="uti">UTI Veterinária</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Campos de Data e Hora da Cirurgia -->
+                        <div class="form-row">
+                            <div class="form-group flex-60">
+                                <label class="form-label">Data da Cirurgia</label>
+                                <input type="date" class="form-control">
+                            </div>
+                            <div class="form-group flex-40">
+                                <label class="form-label">Hora da Cirurgia</label>
+                                <input type="time" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group flex-100">
+                                <label class="form-label">Observações Adicionais</label>
+                                <textarea class="form-control"
+                                    placeholder="Descreva detalhes específicos da solicitação ou justificativa de urgência..."></textarea>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-cancel">Limpar Campos</button>
+                            <button class="btn btn-magenta">Enviar Solicitação</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Histórico de Solicitações -->
+                <div class="history-card">
+                    <div class="history-header" style="padding: 1.5rem 2rem; border-bottom: 1.5px solid #f3f4f6;">
+                        <h3
+                            style="margin: 0; font-size: 1.125rem; font-weight: 800; color: #43054E; text-transform: uppercase;">
+                            SOLICITAÇÕES RECENTES</h3>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID Pedido</th>
+                                    <th>Data/Hora</th>
+                                    <th>Material / Kit</th>
+                                    <th>Qtd</th>
+                                    <th>Prioridade</th>
+                                    <th>Setor</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <footer class="copyright">
+            © 2026 VetTrace. Projeto Integrador III.
+        </footer>
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VetTrace - Descarte de Resíduos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+<body>
+
+    <!-- Sidebar Fixa -->
+    <aside class="sidebar-fixed">
+        <div class="sidebar-header">
+            <img src="logo-vet-trace.png" alt="Logo" style="height: 40px; width: auto;">
+            <div>
+                <h1>VetTrace</h1>
+                <p>Sistema de Rastreabilidade Clínica</p>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <rect x="3" y="3" width="7" height="7" />
+                    <rect x="14" y="3" width="7" height="7" />
+                    <rect x="14" y="14" width="7" height="7" />
+                    <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                <span>Dashboard</span>
+            </a>
+            <a href="estoque-esteril.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path
+                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                    <line x1="12" y1="22.08" x2="12" y2="12" />
+                </svg>
+                <span>Estoque Estéril</span>
+            </a>
+            <a href="solicitar-material.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                </svg>
+                <span>Solicitar Material</span>
+            </a>
+            <a href="descarte-residuos.html" class="nav-item active">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="3 6 5 6 21 6" />
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                </svg>
+                <span>Descarte de Resíduos</span>
+            </a>
+            <a href="relatorios.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                </svg>
+                <span>Relatórios</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">US</div>
+                <div class="user-details">
+                    <p class="user-name">Usuário SILVA</p>
+                    <p class="user-role">Veterinário</p>
+                </div>
+            </div>
+            <div class="footer-actions">
+                <a href="perfil.html" class="footer-btn">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Perfil
+                </a>
+                <a href="login.html" class="footer-btn">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Sair
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Painel de Conteúdo -->
+    <main class="content-panel">
+        <div class="main-card">
+
+            <!-- Top Bar -->
+            <div class="main-header">
+                <h2>GESTÃO DE DESCARTE DE RESÍDUOS SÓLIDOS</h2>
+                <a href="solicitar-material.html" class="btn-magenta" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 0.75rem; font-weight: 700;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width: 1.125rem; height: 1.125rem;">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    SOLICITAR MATERIAL
+                </a>
+            </div>
+
+            <div class="main-body">
+
+                <!-- KPIs -->
+                <div class="kpi-grid">
+                    <!-- Total Descartado -->
+                    <div class="kpi-card">
+                        <p class="kpi-label">Total Descartado (Mês)</p>
+                        <div class="kpi-value-container">
+                            <span class="kpi-value">286.5</span>
+                            <span class="kpi-unit">kg</span>
+                        </div>
+                    </div>
+
+                    <!-- Aguardando Coleta -->
+                    <div class="kpi-card alert">
+                        <p class="kpi-label alert-text">
+                            <svg class="small-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            AGUARDANDO COLETA
+                        </p>
+                        <div class="kpi-value-container">
+                            <span class="kpi-value alert-value">45.3</span>
+                            <span class="kpi-unit">kg</span>
+                        </div>
+                    </div>
+
+                    <!-- Próxima Coleta -->
+                    <div class="kpi-card">
+                        <p class="kpi-label">
+                            <svg class="small-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            Próxima Coleta
+                        </p>
+                        <div class="kpi-value-container">
+                            <span class="kpi-value" style="font-size: 1.5rem;">Empresa ABC</span>
+                        </div>
+                        <p class="kpi-subtext">08/04/2026 - 09:00</p>
+                    </div>
+                </div>
+
+                <!-- Formulário de Registro -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                            </path>
+                        </svg>
+                        <h3>REGISTRAR NOVO DESCARTE</h3>
+                    </div>
+                    <div class="section-body">
+                        <div class="form-row">
+                            <div class="form-group flex-60">
+                                <label class="form-label">Grupo de Resíduo</label>
+                                <select class="form-control">
+                                    <option value="" disabled selected>Selecione o grupo</option>
+                                    <option value="A">Grupo A - Infectantes</option>
+                                    <option value="B">Grupo B - Químicos</option>
+                                    <option value="C">Grupo C - Radioativos</option>
+                                    <option value="D">Grupo D - Comuns</option>
+                                    <option value="E">Grupo E - Perfurocortantes</option>
+                                </select>
+                            </div>
+                            <div class="form-group flex-40">
+                                <label class="form-label">Peso (kg)</label>
+                                <input type="number" class="form-control" placeholder="0.0" step="0.1" min="0">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group flex-60">
+                                <label class="form-label">Resíduo Descartado</label>
+                                <input type="text" class="form-control" placeholder="Ex: Seringas, Luvas, etc.">
+                            </div>
+                            <div class="form-group flex-40">
+                                <label class="form-label">Empresa</label>
+                                <select class="form-control">
+                                    <option value="" disabled selected>Selecione o grupo</option>
+                                    <option value="A">Empresa A </option>
+                                    <option value="B">Empresa B </option>
+                                    <option value="C">Empresa C </option>
+                                    <option value="D">Empresa D </option>
+                                    <option value="E">Empresa E </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group flex-100">
+                                <label class="form-label">Observações</label>
+                                <textarea class="form-control"
+                                    placeholder="Adicione informações adicionais sobre o descarte..."></textarea>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-cancel">Cancelar</button>
+                            <button class="btn btn-magenta">Registrar Descarte</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Histórico de Descartes -->
+                <div class="history-card">
+                    <div class="history-header">
+                        <h3>DESCARTES RECENTES</h3>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Data</th>
+                                <th>Tipo de Resíduo</th>
+                                <th>Nome do Resíduo</th>
+                                <th>Peso (kg)</th>
+                                <th>Empresa</th>
+                                <th>Usuário</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <footer class="copyright">
+            © 2026 VetTrace. Projeto Integrador III.
+        </footer>
+    </main>
+
+</body>
+
+</html>
