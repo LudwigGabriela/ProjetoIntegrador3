@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VetTrace - Perfil do Usuário</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../estilos/styles.css">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
     <!-- Sidebar Fixa -->
     <aside class="sidebar-fixed">
         <div class="sidebar-header">
-            <img src="logo-vet-trace.png" alt="Logo" style="height: 40px; width: auto;">
+            <img src="../assets/logo-vet-trace.png" alt="Logo" style="height: 40px; width: auto;">
             <div>
                 <h1>VetTrace</h1>
                 <p>Sistema de Rastreabilidade Clínica</p>
@@ -137,11 +137,11 @@
                                 </svg>
                                 <h3>INFORMAÇÕES PESSOAIS</h3>
                             </div>
-                            <div class="section-body">
+                            <div class="section-body" id="form-informacoes-pessoais">
                                 <div class="form-grid">
                                     <div class="form-group">
                                         <label class="form-label">Nome Completo</label>
-                                        <input type="text" class="form-control" value="Usuário SILVA">
+                                        <input type="text" class="form-control" id="form-informacoes-pessoais-input-nome" value="Usuário SILVA">
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">E-mail</label>
@@ -153,7 +153,7 @@
                                                 </path>
                                                 <polyline points="22,6 12,13 2,6"></polyline>
                                             </svg>
-                                            <input type="email" class="form-control has-icon"
+                                            <input type="email" class="form-control has-icon" id="form-informacoes-pessoais-input-email"
                                                 value="usuario.silva@vettrace.com">
                                         </div>
                                     </div>
@@ -166,7 +166,7 @@
                                                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
                                                 </path>
                                             </svg>
-                                            <input type="tel" class="form-control has-icon" value="(11) 98765-4321">
+                                            <input type="tel" class="form-control has-icon" id="form-informacoes-pessoais-input-telefone" value="(11) 98765-4321">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -179,7 +179,7 @@
                                                 <line x1="8" y1="2" x2="8" y2="6"></line>
                                                 <line x1="3" y1="10" x2="21" y2="10"></line>
                                             </svg>
-                                            <input type="date" class="form-control has-icon" value="1985-10-15">
+                                            <input type="date" class="form-control has-icon" id="form-informacoes-pessoais-input-data-de-nascimento" value="1985-10-15">
                                         </div>
                                     </div>
                                 </div>
@@ -199,11 +199,11 @@
                                 </svg>
                                 <h3>INFORMAÇÕES PROFISSIONAIS</h3>
                             </div>
-                            <div class="section-body">
+                            <div class="section-body" id="form-informacoes-profissionais">
                                 <div class="form-grid">
                                     <div class="form-group">
                                         <label class="form-label">Cargo</label>
-                                        <select class="form-control">
+                                        <select class="form-control" id="form-informacoes-profissionais-input-cargo">
                                             <option value="vet" selected>Médico Veterinário</option>
                                             <option value="aux">Técnico</option>
                                             <option value="admin">Estudante</option>
@@ -211,11 +211,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">CRMV</label>
-                                        <input type="text" class="form-control" value="SP-12345">
+                                        <input type="text" class="form-control" id="form-informacoes-profissionais-input-crmv" value="SP-12345">
                                     </div>
                                     <div class="form-group full-width">
                                         <label class="form-label">Nome da Clínica/Hospital</label>
-                                        <input type="text" class="form-control" value="Hospital Veterinário VetTrace">
+                                        <input type="text" class="form-control" id="form-informacoes-profissionais-input-clinica" value="Hospital Veterinário VetTrace">
                                     </div>
                                 </div>
                             </div>
@@ -248,8 +248,8 @@
 
                 <!-- Rodapé Ações -->
                 <div class="footer-actions-final">
-                    <button class="btn-action btn-cancel">Cancelar</button>
-                    <button class="btn-action btn-save">
+                    <button class="btn-action btn-cancel" id="form-informacoes-btn-cancelar">Cancelar</button>
+                    <button class="btn-action btn-save" id="form-informacoes-btn-submit">
                         <svg class="icon-btn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
                             <polyline points="17 21 17 13 7 13 7 21"></polyline>
@@ -265,6 +265,8 @@
             © 2026 VetTrace. Projeto Integrador III.
         </footer>
     </main>
+
+    <script src="../js/perfil.js"></script>
 
 </body>
 

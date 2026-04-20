@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VetTrace - Descarte de Resíduos</title>
+    <title>VetTrace - Solicitar Material</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../estilos/styles.css">
+</head>
 
 <body>
 
     <!-- Sidebar Fixa -->
     <aside class="sidebar-fixed">
         <div class="sidebar-header">
-            <img src="logo-vet-trace.png" alt="Logo" style="height: 40px; width: auto;">
+            <img src="../assets/logo-vet-trace.png" alt="Logo" style="height: 40px; width: auto;">
             <div>
                 <h1>VetTrace</h1>
                 <p>Sistema de Rastreabilidade Clínica</p>
@@ -39,14 +40,14 @@
                 </svg>
                 <span>Estoque Estéril</span>
             </a>
-            <a href="solicitar-material.html" class="nav-item">
+            <a href="solicitar-material.html" class="nav-item active">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
                     <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                 </svg>
                 <span>Solicitar Material</span>
             </a>
-            <a href="descarte-residuos.html" class="nav-item active">
+            <a href="descarte-residuos.html" class="nav-item">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <polyline points="3 6 5 6 21 6" />
                     <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
@@ -98,145 +99,142 @@
 
             <!-- Top Bar -->
             <div class="main-header">
-                <h2>GESTÃO DE DESCARTE DE RESÍDUOS SÓLIDOS</h2>
-                <a href="solicitar-material.html" class="btn-magenta" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 0.75rem; font-weight: 700;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width: 1.125rem; height: 1.125rem;">
-                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                    </svg>
-                    SOLICITAR MATERIAL
-                </a>
+                <h2>SOLICITAÇÃO DE MATERIAIS CIRÚRGICOS</h2>
             </div>
 
             <div class="main-body">
 
                 <!-- KPIs -->
                 <div class="kpi-grid">
-                    <!-- Total Descartado -->
                     <div class="kpi-card">
-                        <p class="kpi-label">Total Descartado (Mês)</p>
+                        <p class="kpi-label">Total Solicitado (Mês)</p>
                         <div class="kpi-value-container">
-                            <span class="kpi-value">286.5</span>
-                            <span class="kpi-unit">kg</span>
+                            <span class="kpi-value">124</span>
+                            <span class="kpi-unit">itens</span>
                         </div>
                     </div>
 
-                    <!-- Aguardando Coleta -->
                     <div class="kpi-card alert">
                         <p class="kpi-label alert-text">
-                            <svg class="small-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="3">
+                            <svg class="small-icon" style="width: 1.125rem; height: 1.125rem;" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="3">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <polyline points="12 6 12 12 16 14"></polyline>
                             </svg>
-                            AGUARDANDO COLETA
+                            PEDIDOS PENDENTES
                         </p>
                         <div class="kpi-value-container">
-                            <span class="kpi-value alert-value">45.3</span>
-                            <span class="kpi-unit">kg</span>
+                            <span class="kpi-value alert-value">8</span>
+                            <span class="kpi-unit">em aberto</span>
                         </div>
                     </div>
 
-                    <!-- Próxima Coleta -->
                     <div class="kpi-card">
-                        <p class="kpi-label">
-                            <svg class="small-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.5">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="16" y1="2" x2="16" y2="6"></line>
-                                <line x1="8" y1="2" x2="8" y2="6"></line>
-                                <line x1="3" y1="10" x2="21" y2="10"></line>
-                            </svg>
-                            Próxima Coleta
-                        </p>
+                        <p class="kpi-label">Tempo Médio de Atendimento</p>
                         <div class="kpi-value-container">
-                            <span class="kpi-value" style="font-size: 1.5rem;">Empresa ABC</span>
+                            <span class="kpi-value">1.5</span>
+                            <span class="kpi-unit">horas</span>
                         </div>
-                        <p class="kpi-subtext">08/04/2026 - 09:00</p>
                     </div>
                 </div>
 
-                <!-- Formulário de Registro -->
+                <!-- Formulário de Solicitação -->
                 <div class="section-card">
                     <div class="section-header">
                         <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2.5">
-                            <polyline points="3 6 5 6 21 6"></polyline>
-                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                            </path>
+                            <path d="M12 5v14M5 12h14" />
                         </svg>
-                        <h3>REGISTRAR NOVO DESCARTE</h3>
+                        <h3>NOVA SOLICITAÇÃO DE MATERIAL</h3>
                     </div>
-                    <div class="section-body">
+                    <div class="section-body" id="form-solicitacao">
                         <div class="form-row">
                             <div class="form-group flex-60">
-                                <label class="form-label">Grupo de Resíduo</label>
-                                <select class="form-control">
-                                    <option value="" disabled selected>Selecione o grupo</option>
-                                    <option value="A">Grupo A - Infectantes</option>
-                                    <option value="B">Grupo B - Químicos</option>
-                                    <option value="C">Grupo C - Radioativos</option>
-                                    <option value="D">Grupo D - Comuns</option>
-                                    <option value="E">Grupo E - Perfurocortantes</option>
+                                <label class="form-label">Material / Kit Desejado</label>
+                                <select class="form-control" id="form-solicitacao-input-material">
+                                    <option value="" disabled selected>Selecione o material ou kit</option>
+                                    <option value="1">Kit Cirúrgico Ortopédico</option>
+                                    <option value="2">Kit Dental Completo</option>
+                                    <option value="3">Kit Emergência</option>
+                                    <option value="4">Seringas 5ml (Caixa 50un)</option>
+                                    <option value="5">Gaze Estéril (Pacote)</option>
                                 </select>
                             </div>
                             <div class="form-group flex-40">
-                                <label class="form-label">Peso (kg)</label>
-                                <input type="number" class="form-control" placeholder="0.0" step="0.1" min="0">
+                                <label class="form-label">Quantidade</label>
+                                <input type="number" class="form-control" id="form-solicitacao-input-quantidade" value="1" min="1">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group flex-60">
-                                <label class="form-label">Resíduo Descartado</label>
-                                <input type="text" class="form-control" placeholder="Ex: Seringas, Luvas, etc.">
+                                <label class="form-label">Prioridade</label>
+                                <select class="form-control" id="form-solicitacao-input-prioridade">
+                                    <option value="baixa">Baixa - Rotina</option>
+                                    <option value="media" selected>Média - Procedimento Agendado</option>
+                                    <option value="alta">Alta - Urgência Clínica</option>
+                                </select>
                             </div>
                             <div class="form-group flex-40">
-                                <label class="form-label">Empresa</label>
-                                <select class="form-control">
-                                    <option value="" disabled selected>Selecione o grupo</option>
-                                    <option value="A">Empresa A </option>
-                                    <option value="B">Empresa B </option>
-                                    <option value="C">Empresa C </option>
-                                    <option value="D">Empresa D </option>
-                                    <option value="E">Empresa E </option>
+                                <label class="form-label">Setor Destino</label>
+                                <select class="form-control" id="form-solicitacao-input-destino">
+                                    <option value="cirurgia">Centro Cirúrgico</option>
+                                    <option value="ambulatorio">Ambulatório</option>
+                                    <option value="uti">UTI Veterinária</option>
                                 </select>
                             </div>
                         </div>
+
+                        <!-- Campos de Data e Hora da Cirurgia -->
+                        <div class="form-row">
+                            <div class="form-group flex-60">
+                                <label class="form-label">Data da Cirurgia</label>
+                                <input type="date" class="form-control" id="form-solicitacao-input-data">
+                            </div>
+                            <div class="form-group flex-40">
+                                <label class="form-label">Hora da Cirurgia</label>
+                                <input type="time" class="form-control" id="form-solicitacao-input-hora">
+                            </div>
+                        </div>
+
                         <div class="form-row">
                             <div class="form-group flex-100">
-                                <label class="form-label">Observações</label>
-                                <textarea class="form-control"
-                                    placeholder="Adicione informações adicionais sobre o descarte..."></textarea>
+                                <label class="form-label">Observações Adicionais</label>
+                                <textarea class="form-control" id="form-solicitacao-input-observacao"
+                                    placeholder="Descreva detalhes específicos da solicitação ou justificativa de urgência..."></textarea>
                             </div>
                         </div>
                         <div class="form-actions">
-                            <button class="btn btn-cancel">Cancelar</button>
-                            <button class="btn btn-magenta">Registrar Descarte</button>
+                            <button class="btn btn-cancel" id="form-solicitacao-btn-limpar">Limpar Campos</button>
+                            <button class="btn btn-magenta" id="form-solicitacao-btn-submit">Enviar Solicitação</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Histórico de Descartes -->
+                <!-- Histórico de Solicitações -->
                 <div class="history-card">
-                    <div class="history-header">
-                        <h3>DESCARTES RECENTES</h3>
+                    <div class="history-header" style="padding: 1.5rem 2rem; border-bottom: 1.5px solid #f3f4f6;">
+                        <h3
+                            style="margin: 0; font-size: 1.125rem; font-weight: 800; color: #43054E; text-transform: uppercase;">
+                            SOLICITAÇÕES RECENTES</h3>
                     </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Data</th>
-                                <th>Tipo de Resíduo</th>
-                                <th>Nome do Resíduo</th>
-                                <th>Peso (kg)</th>
-                                <th>Empresa</th>
-                                <th>Usuário</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID Pedido</th>
+                                    <th>Data/Hora</th>
+                                    <th>Material / Kit</th>
+                                    <th>Qtd</th>
+                                    <th>Prioridade</th>
+                                    <th>Setor</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
             </div>
@@ -245,6 +243,8 @@
             © 2026 VetTrace. Projeto Integrador III.
         </footer>
     </main>
+
+    <script src="../js/solicitar-material.js"></script>
 
 </body>
 

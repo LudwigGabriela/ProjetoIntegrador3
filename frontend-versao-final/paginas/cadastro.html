@@ -243,7 +243,7 @@
 <body>
 
     <div class="logo-container">
-        <img src="logo-vet-trace.png" alt="Logo" style="height: 60px; width: auto;">
+        <img src="../assets/logo-vet-trace.png" alt="Logo" style="height: 60px; width: auto;">
         <h1 class="logo-text">VetTrace</h1>
     </div>
 
@@ -253,7 +253,7 @@
             <p>Preencha os dados abaixo para se cadastrar no sistema</p>
         </div>
 
-        <form action="dashboard.html">
+        <form id="form-cadastro">
             <!-- Pessoais -->
             <div class="form-section">
                 <h4 class="section-title">Informações Pessoais</h4>
@@ -266,7 +266,7 @@
                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="12" cy="7" r="4"></circle>
                             </svg>
-                            <input type="text" class="form-control" placeholder="Seu nome" required>
+                            <input type="text" class="form-control" id="form-cadastro-input-nome" placeholder="Seu nome" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -278,7 +278,7 @@
                                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
                                 </path>
                             </svg>
-                            <input type="tel" class="form-control" placeholder="(11) 99999-9999" required>
+                            <input type="tel" class="form-control" id="form-cadastro-input-telefone" placeholder="(11) 99999-9999" required>
                         </div>
                     </div>
                     <div class="form-group full-width">
@@ -290,7 +290,7 @@
                                 </path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
                             </svg>
-                            <input type="email" class="form-control" placeholder="exemplo@vettrace.com" required>
+                            <input type="email" class="form-control" id="form-cadastro-input-email" placeholder="exemplo@vettrace.com" required>
                         </div>
                     </div>
                 </div>
@@ -302,7 +302,7 @@
                 <div class="form-grid">
                     <div class="form-group">
                         <label class="form-label">Cargo</label>
-                        <select class="form-control" required>
+                        <select class="form-control" id="form-cadastro-input-cargo" required>
                             <option value="" disabled selected>Selecione o cargo</option>
                             <option value="vet">Médico Veterinário</option>
                             <option value="aux">Técnico</option>
@@ -321,7 +321,7 @@
                                 <line x1="16" y1="17" x2="8" y2="17"></line>
                                 <polyline points="10 9 9 9 8 9"></polyline>
                             </svg>
-                            <input type="text" class="form-control" placeholder="UF-00000">
+                            <input type="text" class="form-control" id="form-cadastro-input-crmv" placeholder="UF-00000">
                         </div>
                     </div>
                     <div class="form-group full-width">
@@ -335,7 +335,7 @@
                                 <path d="M16 6h.01"></path>
                                 <path d="M12 6h.01"></path>
                             </svg>
-                            <input type="text" class="form-control" placeholder="Nome da instituição" required>
+                            <input type="text" class="form-control" id="form-cadastro-input-clinica" placeholder="Nome da instituição" required>
                         </div>
                     </div>
                 </div>
@@ -353,7 +353,7 @@
                                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                             </svg>
-                            <input type="password" class="form-control" placeholder="••••••••" required>
+                            <input type="password" class="form-control" id="form-cadastro-input-senha" placeholder="••••••••" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -364,7 +364,7 @@
                                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                             </svg>
-                            <input type="password" class="form-control" placeholder="••••••••" required>
+                            <input type="password" class="form-control" id="form-cadastro-input-confirmar-senha" placeholder="••••••••" required>
                         </div>
                     </div>
                 </div>
@@ -383,6 +383,8 @@
     <footer class="copyright">
         © 2026 VetTrace. Projeto Integrador III.
     </footer>
+
+    <script src="../js/cadastro.js"></script>
 
 </body>
 

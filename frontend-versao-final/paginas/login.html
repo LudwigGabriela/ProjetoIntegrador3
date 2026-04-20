@@ -228,7 +228,7 @@
 
     <header class="login-header">
         <div class="logo-container">
-            <img src="logo-vet-trace.png" alt="Logo" style="height: 60px; width: auto; margin-right: 1rem;">
+            <img src="../assets/logo-vet-trace.png" alt="Logo" style="height: 60px; width: auto; margin-right: 1rem;">
             <h1 class="logo-text">VetTrace</h1>
         </div>
         <p class="subtitle">Sistema de Rastreabilidade Clínica</p>
@@ -240,7 +240,7 @@
             <p>Entre com suas credenciais para acessar o sistema</p>
         </div>
 
-        <form action="dashboard.html">
+        <form id="form-login">
             <div class="form-group">
                 <label class="form-label">E-mail</label>
                 <div class="input-wrapper">
@@ -248,7 +248,7 @@
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                         <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
-                    <input type="email" class="form-control" placeholder="seu@email.com" required>
+                    <input type="email" class="form-control" id="form-login-input-email" placeholder="seu@email.com" required>
                 </div>
             </div>
 
@@ -259,7 +259,7 @@
                         <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                         <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                     </svg>
-                    <input type="password" class="form-control" placeholder="••••••••" required>
+                    <input type="password" class="form-control" id="form-login-input-senha" placeholder="••••••••" required>
                 </div>
             </div>
 
@@ -282,6 +282,8 @@
     <footer class="copyright">
         © 2026 VetTrace. Projeto Integrador III.
     </footer>
+
+    <script src="../js/login.js"></script>
 
 </body>
 
