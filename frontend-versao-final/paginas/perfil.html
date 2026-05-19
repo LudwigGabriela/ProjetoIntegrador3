@@ -40,6 +40,15 @@
                 </svg>
                 <span>Estoque Estéril</span>
             </a>
+            <a href="ciclos.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                    <path d="M3 3v5h5" />
+                    <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
+                    <path d="M16 16h5v5" />
+                </svg>
+                <span>Ciclos</span>
+            </a>
             <a href="solicitar-material.html" class="nav-item">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
@@ -53,6 +62,16 @@
                     <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
                 </svg>
                 <span>Descarte de Resíduos</span>
+            </a>
+            <a href="descarte-cadaver.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="5" r="2" />
+                    <circle cx="6" cy="9" r="2" />
+                    <circle cx="18" cy="9" r="2" />
+                    <path d="M9 14c-1.5 0-3 1.5-3 3.5 0 2 2.5 3.5 6 3.5s6-1.5 6-3.5c0-2-1.5-3.5-3-3.5H9z" />
+                </svg>
+                <span>Registra Cadáveres</span>
             </a>
             <a href="relatorios.html" class="nav-item">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -97,8 +116,10 @@
                     <p>Gerencie suas informações pessoais e profissionais</p>
                 </div>
                 <div style="display: flex; gap: 1rem; align-items: center;">
-                    <a href="solicitar-material.html" class="btn-magenta" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 0.75rem; font-weight: 700;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width: 1.125rem; height: 1.125rem;">
+                    <a href="solicitar-material.html" class="btn-magenta"
+                        style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 0.75rem; font-weight: 700;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                            style="width: 1.125rem; height: 1.125rem;">
                             <line x1="12" y1="5" x2="12" y2="19"></line>
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                         </svg>
@@ -137,11 +158,11 @@
                                 </svg>
                                 <h3>INFORMAÇÕES PESSOAIS</h3>
                             </div>
-                            <div class="section-body" id="form-informacoes-pessoais">
+                            <div class="section-body">
                                 <div class="form-grid">
                                     <div class="form-group">
                                         <label class="form-label">Nome Completo</label>
-                                        <input type="text" class="form-control" id="form-informacoes-pessoais-input-nome" value="Usuário SILVA">
+                                        <input type="text" class="form-control" value="Usuário SILVA">
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">E-mail</label>
@@ -153,7 +174,7 @@
                                                 </path>
                                                 <polyline points="22,6 12,13 2,6"></polyline>
                                             </svg>
-                                            <input type="email" class="form-control has-icon" id="form-informacoes-pessoais-input-email"
+                                            <input type="email" class="form-control has-icon"
                                                 value="usuario.silva@vettrace.com">
                                         </div>
                                     </div>
@@ -166,7 +187,7 @@
                                                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
                                                 </path>
                                             </svg>
-                                            <input type="tel" class="form-control has-icon" id="form-informacoes-pessoais-input-telefone" value="(11) 98765-4321">
+                                            <input type="tel" class="form-control has-icon" value="(11) 98765-4321">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -179,7 +200,7 @@
                                                 <line x1="8" y1="2" x2="8" y2="6"></line>
                                                 <line x1="3" y1="10" x2="21" y2="10"></line>
                                             </svg>
-                                            <input type="date" class="form-control has-icon" id="form-informacoes-pessoais-input-data-de-nascimento" value="1985-10-15">
+                                            <input type="date" class="form-control has-icon" value="1985-10-15">
                                         </div>
                                     </div>
                                 </div>
@@ -199,11 +220,11 @@
                                 </svg>
                                 <h3>INFORMAÇÕES PROFISSIONAIS</h3>
                             </div>
-                            <div class="section-body" id="form-informacoes-profissionais">
+                            <div class="section-body">
                                 <div class="form-grid">
                                     <div class="form-group">
                                         <label class="form-label">Cargo</label>
-                                        <select class="form-control" id="form-informacoes-profissionais-input-cargo">
+                                        <select class="form-control">
                                             <option value="vet" selected>Médico Veterinário</option>
                                             <option value="aux">Técnico</option>
                                             <option value="admin">Estudante</option>
@@ -211,11 +232,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">CRMV</label>
-                                        <input type="text" class="form-control" id="form-informacoes-profissionais-input-crmv" value="SP-12345">
+                                        <input type="text" class="form-control" value="SP-12345">
                                     </div>
                                     <div class="form-group full-width">
                                         <label class="form-label">Nome da Clínica/Hospital</label>
-                                        <input type="text" class="form-control" id="form-informacoes-profissionais-input-clinica" value="Hospital Veterinário VetTrace">
+                                        <input type="text" class="form-control" value="Hospital Veterinário VetTrace">
                                     </div>
                                 </div>
                             </div>
@@ -248,8 +269,8 @@
 
                 <!-- Rodapé Ações -->
                 <div class="footer-actions-final">
-                    <button class="btn-action btn-cancel" id="form-informacoes-btn-cancelar">Cancelar</button>
-                    <button class="btn-action btn-save" id="form-informacoes-btn-submit">
+                    <button class="btn-action btn-cancel">Cancelar</button>
+                    <button class="btn-action btn-save">
                         <svg class="icon-btn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
                             <polyline points="17 21 17 13 7 13 7 21"></polyline>
@@ -265,8 +286,6 @@
             © 2026 VetTrace. Projeto Integrador III.
         </footer>
     </main>
-
-    <script src="../js/perfil.js"></script>
 
 </body>
 
