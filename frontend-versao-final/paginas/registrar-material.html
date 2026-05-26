@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VetTrace - Descarte de Resíduos</title>
+    <title>VetTrace - Registrar Material</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../estilos/styles.css">
+</head>
 
 <body>
 
@@ -30,7 +31,7 @@
                 </svg>
                 <span>Dashboard</span>
             </a>
-            <a href="estoque-esteril.html" class="nav-item">
+            <a href="estoque-esteril.html" class="nav-item active">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <path
                         d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
@@ -39,6 +40,10 @@
                 </svg>
                 <span>Estoque Estéril</span>
             </a>
+            <div class="submenu">
+                <a href="estoque-esteril.html" class="submenu-item">Consultar Estoque</a>
+                <a href="registrar-material.html" class="submenu-item active">Registrar Material</a>
+            </div>
             <a href="ciclos.html" class="nav-item">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
@@ -55,7 +60,7 @@
                 </svg>
                 <span>Solicitar Material</span>
             </a>
-            <a href="descarte-residuos.html" class="nav-item active">
+            <a href="descarte-residuos.html" class="nav-item">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <polyline points="3 6 5 6 21 6" />
                     <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
@@ -117,15 +122,15 @@
 
             <!-- Top Bar -->
             <div class="main-header">
-                <h2>GESTÃO DE DESCARTE DE RESÍDUOS SÓLIDOS</h2>
-                <a href="solicitar-material.html" class="btn-magenta"
+                <h2>REGISTRO DE NOVO MATERIAL / KIT ESTÉRIL</h2>
+                <a href="estoque-esteril.html" class="btn-magenta"
                     style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 0.75rem; font-weight: 700;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                         style="width: 1.125rem; height: 1.125rem;">
-                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
                     </svg>
-                    SOLICITAR MATERIAL
+                    VOLTAR AO ESTOQUE
                 </a>
             </div>
 
@@ -133,47 +138,27 @@
 
                 <!-- KPIs -->
                 <div class="kpi-grid">
-                    <!-- Total Descartado -->
                     <div class="kpi-card">
-                        <p class="kpi-label">Total Descartado (Mês)</p>
+                        <p class="kpi-label">Lote Autogerado</p>
                         <div class="kpi-value-container">
-                            <span class="kpi-value">286.5</span>
-                            <span class="kpi-unit">kg</span>
+                            <span class="kpi-value" style="font-size: 1.5rem; color: #43054E;" id="lote-sugerido">LOTE-20260519-A</span>
                         </div>
                     </div>
 
-                    <!-- Aguardando Coleta -->
+                    <div class="kpi-card">
+                        <p class="kpi-label">Autoclaves Ativos</p>
+                        <div class="kpi-value-container">
+                            <span class="kpi-value">3</span>
+                            <span class="kpi-unit">equipamentos</span>
+                        </div>
+                    </div>
+
                     <div class="kpi-card alert">
-                        <p class="kpi-label alert-text">
-                            <svg class="small-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="3">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <polyline points="12 6 12 12 16 14"></polyline>
-                            </svg>
-                            AGUARDANDO COLETA
-                        </p>
+                        <p class="kpi-label alert-text">Tempo de Esterilização Padrão</p>
                         <div class="kpi-value-container">
-                            <span class="kpi-value alert-value">45.3</span>
-                            <span class="kpi-unit">kg</span>
+                            <span class="kpi-value alert-value">20</span>
+                            <span class="kpi-unit">minutos</span>
                         </div>
-                    </div>
-
-                    <!-- Próxima Coleta -->
-                    <div class="kpi-card">
-                        <p class="kpi-label">
-                            <svg class="small-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.5">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="16" y1="2" x2="16" y2="6"></line>
-                                <line x1="8" y1="2" x2="8" y2="6"></line>
-                                <line x1="3" y1="10" x2="21" y2="10"></line>
-                            </svg>
-                            Próxima Coleta
-                        </p>
-                        <div class="kpi-value-container">
-                            <span class="kpi-value" style="font-size: 1.5rem;">Empresa ABC</span>
-                        </div>
-                        <p class="kpi-subtext">08/04/2026 - 09:00</p>
                     </div>
                 </div>
 
@@ -182,89 +167,110 @@
                     <div class="section-header">
                         <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2.5">
-                            <polyline points="3 6 5 6 21 6"></polyline>
-                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                            </path>
+                            <path d="M12 5v14M5 12h14" />
                         </svg>
-                        <h3>REGISTRAR NOVO DESCARTE</h3>
+                        <h3>DETALHES DO NOVO MATERIAL / KIT</h3>
                     </div>
                     <div class="section-body">
+                        
+                        <!-- Dados do Kit -->
                         <div class="form-row">
                             <div class="form-group flex-60">
-                                <label class="form-label">Grupo de Resíduo</label>
-                                <select class="form-control">
-                                    <option value="" disabled selected>Selecione o grupo</option>
-                                    <option value="A">Grupo A - Infectantes</option>
-                                    <option value="B">Grupo B - Químicos</option>
-                                    <option value="D">Grupo D - Comuns</option>
-                                    <option value="E">Grupo E - Perfurocortantes</option>
+                                <label class="form-label">Nome do Kit / Material</label>
+                                <select class="form-control" id="kit-name-select">
+                                    <option value="" disabled selected>Selecione o nome do kit ou material</option>
+                                    <option value="Caixa Pequena 1">Caixa Pequena 1</option>
+                                    <option value="Caixa Pequena 2">Caixa Pequena 2</option>
+                                    <option value="Caixa Média 1">Caixa Média 1</option>
+                                    <option value="Caixa Média 2">Caixa Média 2</option>
+                                    <option value="Caixa Grande 1">Caixa Grande 1</option>
+                                    <option value="Caixa Grande 2">Caixa Grande 2</option>
+                                    <option value="Caixa Esofágica">Caixa Esofágica</option>
+                                    <option value="Caixa Hemostática">Caixa Hemostática</option>
+                                    <option value="Caixa Vascular">Caixa Vascular</option>
                                 </select>
                             </div>
                             <div class="form-group flex-40">
-                                <label class="form-label">Peso (kg)</label>
-                                <input type="number" class="form-control" placeholder="0.0" step="0.1" min="0">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group flex-60">
-                                <label class="form-label">Resíduo Descartado</label>
-                                <input type="text" class="form-control" placeholder="Ex: Seringas, Luvas, etc.">
-                            </div>
-                            <div class="form-group flex-40">
-                                <label class="form-label">Empresa</label>
+                                <label class="form-label">Tipo / Categoria</label>
                                 <select class="form-control">
-                                    <option value="" disabled selected>Selecione o grupo</option>
-                                    <option value="A">Bio Projetos Sustentáveis LTDA</option>
-                                    <option value="B">SLU-DF</option>
+                                    <option value="Pequeno">Pequeno - Kit Sutura / Geral</option>
+                                    <option value="Médio" selected>Médio - Procedimento Comum</option>
+                                    <option value="Grande">Grande - Kit Ortopedia / Especialidade</option>
+                                    <option value="Especial">Especial - Cirurgia Delicada</option>
                                 </select>
                             </div>
                         </div>
-                        <!-- Campos de Data e Hora do Rregistro de Descarte -->
+
+                        <!-- Lote e Equipamento -->
                         <div class="form-row">
-                            <div class="form-group flex-60">
-                                <label class="form-label">Data do Registro de Descarte</label>
-                                <input type="date" class="form-control">
-                            </div>
                             <div class="form-group flex-40">
-                                <label class="form-label">Hora do Registro de Descarte</label>
-                                <input type="time" class="form-control">
+                                <label class="form-label">Lote de Esterilização</label>
+                                <input type="text" class="form-control" value="LOTE-20260519-A">
+                            </div>
+                            <div class="form-group flex-60">
+                                <label class="form-label">Autoclave Utilizado</label>
+                                <select class="form-control">
+                                    <option value="autoclave1">Autoclave Digital V2 (Principal)</option>
+                                    <option value="autoclave2">Autoclave Horizontal M1 (Secundário)</option>
+                                    <option value="autoclave3">Autoclave Térmica T3 (Rápido)</option>
+                                </select>
                             </div>
                         </div>
+
+                        <!-- Parâmetros de Esterilização -->
+                        <div class="form-row">
+                            <div class="form-group flex-60">
+                                <label class="form-label">Temperatura / Parâmetros do Ciclo</label>
+                                <input type="text" class="form-control" value="134°C - 2.1 bar - 20min">
+                            </div>
+                            <div class="form-group flex-40">
+                                <label class="form-label">Status do Material</label>
+                                <select class="form-control">
+                                    <option value="Disponível" selected>Disponível - Aprovado</option>
+                                    <option value="Quarentena">Em Quarentena - Aguardando Laudo</option>
+                                    <option value="Pendente">Pendente - Lacre Violado</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Data, Hora e Validade -->
+                        <div class="form-row">
+                            <div class="form-group flex-40">
+                                <label class="form-label">Data de Esterilização</label>
+                                <input type="date" class="form-control" value="2026-05-19">
+                            </div>
+                            <div class="form-group flex-20">
+                                <label class="form-label">Hora</label>
+                                <input type="time" class="form-control" value="08:30">
+                            </div>
+                            <div class="form-group flex-40">
+                                <label class="form-label">Data de Validade (Expiração)</label>
+                                <input type="date" class="form-control" value="2026-06-19">
+                            </div>
+                        </div>
+
+                        <!-- Responsável e Descrição -->
                         <div class="form-row">
                             <div class="form-group flex-100">
-                                <label class="form-label">Observações</label>
-                                <textarea class="form-control"
-                                    placeholder="Adicione informações adicionais sobre o descarte..."></textarea>
+                                <label class="form-label">Responsável Técnico pelo Registro</label>
+                                <input type="text" class="form-control" value="Usuário SILVA">
                             </div>
                         </div>
-                        <div class="form-actions">
-                            <button class="btn btn-cancel">Cancelar</button>
-                            <button class="btn btn-magenta">Registrar Descarte</button>
+
+                        <div class="form-row">
+                            <div class="form-group flex-100">
+                                <label class="form-label">Descrição / Composição dos Itens do Kit</label>
+                                <textarea class="form-control" rows="4"
+                                    placeholder="Insira detalhes da autoclave, verificação física dos lacres químicos ou relação completa de pinças e tesouras inclusas..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Ações -->
+                        <div class="form-actions" style="margin-top: 2rem;">
+                            <button class="btn btn-cancel">Limpar Formulário</button>
+                            <button class="btn btn-magenta" onclick="alert('Material registrado com sucesso no estoque!'); window.location.href='estoque-esteril.html';">Registrar Kit no Estoque</button>
                         </div>
                     </div>
-                </div>
-
-                <!-- Histórico de Descartes -->
-                <div class="history-card">
-                    <div class="history-header">
-                        <h3>DESCARTES RECENTES</h3>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Data e Hora do Registro</th>
-                                <th>Tipo de Resíduo</th>
-                                <th>Nome do Resíduo</th>
-                                <th>Peso (kg)</th>
-                                <th>Empresa</th>
-                                <th>Usuário</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
                 </div>
 
             </div>

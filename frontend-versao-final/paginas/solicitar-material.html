@@ -40,6 +40,15 @@
                 </svg>
                 <span>Estoque Estéril</span>
             </a>
+            <a href="ciclos.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                    <path d="M3 3v5h5" />
+                    <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
+                    <path d="M16 16h5v5" />
+                </svg>
+                <span>Ciclos</span>
+            </a>
             <a href="solicitar-material.html" class="nav-item active">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
@@ -53,6 +62,16 @@
                     <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
                 </svg>
                 <span>Descarte de Resíduos</span>
+            </a>
+            <a href="descarte-cadaver.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="5" r="2" />
+                    <circle cx="6" cy="9" r="2" />
+                    <circle cx="18" cy="9" r="2" />
+                    <path d="M9 14c-1.5 0-3 1.5-3 3.5 0 2 2.5 3.5 6 3.5s6-1.5 6-3.5c0-2-1.5-3.5-3-3.5H9z" />
+                </svg>
+                <span>Registra Cadáveres</span>
             </a>
             <a href="relatorios.html" class="nav-item">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -147,28 +166,32 @@
                         </svg>
                         <h3>NOVA SOLICITAÇÃO DE MATERIAL</h3>
                     </div>
-                    <div class="section-body" id="form-solicitacao">
+                    <div class="section-body">
                         <div class="form-row">
                             <div class="form-group flex-60">
                                 <label class="form-label">Material / Kit Desejado</label>
-                                <select class="form-control" id="form-solicitacao-input-material">
+                                <select class="form-control" id="kit-select">
                                     <option value="" disabled selected>Selecione o material ou kit</option>
-                                    <option value="1">Kit Cirúrgico Ortopédico</option>
-                                    <option value="2">Kit Dental Completo</option>
-                                    <option value="3">Kit Emergência</option>
-                                    <option value="4">Seringas 5ml (Caixa 50un)</option>
-                                    <option value="5">Gaze Estéril (Pacote)</option>
+                                    <option value="1">Caixa Pequena 1</option>
+                                    <option value="2">Caixa Pequena 2</option>
+                                    <option value="3">Caixa Média 1</option>
+                                    <option value="4">Caixa Média 2</option>
+                                    <option value="5">Caixa Grande 1</option>
+                                    <option value="6">Caixa Grande 2</option>
+                                    <option value="7">Caixa Esofágica</option>
+                                    <option value="8">Caixa Hemostática</option>
+                                    <option value="9">Caixa Vascular</option>
                                 </select>
                             </div>
                             <div class="form-group flex-40">
                                 <label class="form-label">Quantidade</label>
-                                <input type="number" class="form-control" id="form-solicitacao-input-quantidade" value="1" min="1">
+                                <input type="number" class="form-control" value="1" min="1">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group flex-60">
                                 <label class="form-label">Prioridade</label>
-                                <select class="form-control" id="form-solicitacao-input-prioridade">
+                                <select class="form-control">
                                     <option value="baixa">Baixa - Rotina</option>
                                     <option value="media" selected>Média - Procedimento Agendado</option>
                                     <option value="alta">Alta - Urgência Clínica</option>
@@ -176,7 +199,7 @@
                             </div>
                             <div class="form-group flex-40">
                                 <label class="form-label">Setor Destino</label>
-                                <select class="form-control" id="form-solicitacao-input-destino">
+                                <select class="form-control">
                                     <option value="cirurgia">Centro Cirúrgico</option>
                                     <option value="ambulatorio">Ambulatório</option>
                                     <option value="uti">UTI Veterinária</option>
@@ -184,28 +207,39 @@
                             </div>
                         </div>
 
+                        <!-- Kits cirúrgicos -->
+                        <div class="form-row" id="kit-materials-row" style="display: none; margin-bottom: 1.5rem;">
+                            <div class="form-group flex-100">
+                                <label class="form-label" style="font-weight: 700; color: #43054E;">Materiais do Kit
+                                    Selecionado</label>
+                                <div id="kit-materials-list"
+                                    style="background-color: #f9fafb; border: 1.5px dashed #43054E; border-radius: 8px; padding: 1.25rem; font-size: 0.875rem; color: #374151; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.75rem;">
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Campos de Data e Hora da Cirurgia -->
                         <div class="form-row">
                             <div class="form-group flex-60">
                                 <label class="form-label">Data da Cirurgia</label>
-                                <input type="date" class="form-control" id="form-solicitacao-input-data">
+                                <input type="date" class="form-control">
                             </div>
                             <div class="form-group flex-40">
                                 <label class="form-label">Hora da Cirurgia</label>
-                                <input type="time" class="form-control" id="form-solicitacao-input-hora">
+                                <input type="time" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group flex-100">
                                 <label class="form-label">Observações Adicionais</label>
-                                <textarea class="form-control" id="form-solicitacao-input-observacao"
+                                <textarea class="form-control"
                                     placeholder="Descreva detalhes específicos da solicitação ou justificativa de urgência..."></textarea>
                             </div>
                         </div>
                         <div class="form-actions">
-                            <button class="btn btn-cancel" id="form-solicitacao-btn-limpar">Limpar Campos</button>
-                            <button class="btn btn-magenta" id="form-solicitacao-btn-submit">Enviar Solicitação</button>
+                            <button class="btn btn-cancel">Limpar Campos</button>
+                            <button class="btn btn-magenta">Enviar Solicitação</button>
                         </div>
                     </div>
                 </div>
@@ -244,8 +278,164 @@
         </footer>
     </main>
 
-    <script src="../js/solicitar-material.js"></script>
+    <script>
+        const kitMaterials = {
+            "1": [
+                "Pinça Foerster (1 und)",
+                "Cabo de bisturi nº3 (1 und)",
+                "Tesoura Mayo Stille reta (1 und)",
+                "Porta Agulha de Mayo Hegar (1 und)",
+                "Pinça Adson Anatômica (1 und)",
+                "Pinça Adson Dente de Rato (1 und)",
+                "Pinças Mosquito curva (3 und)",
+                "Estojo Inox Lisa 32x24x4 (1 und)",
+                "Pinça backhaus (2 und)"
+            ],
+            "2": [
+                "Pinça Foerster (1 und)",
+                "Pinças Backhaus (4 und)",
+                "Cabo de bisturi nº3 (1 und)",
+                "Tesoura Metzembaum reta (1 und)",
+                "Tesoura Mayo Stille curva (1 und)",
+                "Tesoura Mayo Stille reta (1 und)",
+                "Porta Agulha de Mayo Hegar (1 und)",
+                "Pinça Adson Anatômica (1 und)",
+                "Pinça Adson Dente de Rato (1 und)",
+                "Pinça Mosquito reta (1 und)",
+                "Pinças Mosquito curva (3 und)",
+                "Estojo Inox perfurado (1 und)",
+                "Pinça Backhaus (2 und)"
+            ],
+            "3": [
+                "Pinça Foerster (1 und)",
+                "Pinças Backhaus (4 und)",
+                "Cabo de bisturi nº3 (1 und)",
+                "Cabo de bisturi nº4 (1 und)",
+                "Tesoura Metzembaum reta (1 und)",
+                "Tesoura Mayo Stille curva (1 und)",
+                "Porta Agulha de Mayo Hegar (1 und)",
+                "Pinça Adson Anatômica (1 und)",
+                "Pinça Adson Dente de Rato (1 und)",
+                "Pinças Kelly curvas (3 und)",
+                "Pinça Mosquito reta (2 und)",
+                "Pinças Mosquito curva (2 und)",
+                "Estojo Inox perfurado (1 und)"
+            ],
+            "4": [
+                "Pinça Foerster (1 und)",
+                "Pinças Backhaus (4 und)",
+                "Cabo de bisturi nº3 (1 und)",
+                "Cabo de bisturi nº4 (1 und)",
+                "Tesoura Metzembaum reta (1 und)",
+                "Tesoura Mayo Stille curva (1 und)",
+                "Porta Agulha de Mayo Hegar (1 und)",
+                "Pinça Adson Anatômica (1 und)",
+                "Pinça Adson Dente de Rato (1 und)",
+                "Pinças Kelly curvas (3 und)",
+                "Pinça Mosquito reta (2 und)",
+                "Pinças Mosquito curva (2 und)",
+                "Estojo Inox perfurado (1 und)"
+            ],
+            "5": [
+                "Pinça Foerster (1 und)",
+                "Pinças Backhaus (4 und)",
+                "Cabo de bisturi nº3 (1 und)",
+                "Cabo de bisturi nº4 (1 und)",
+                "Tesoura Metzembaum reta (1 und)",
+                "Tesoura Metzembaum curva (1 und)",
+                "Tesoura Mayo Stille curva (1 und)",
+                "Tesoura Mayo Stille reta (1 und)",
+                "Porta Agulha de Mayo Hegar (2 und)",
+                "Pinça Anatômica (1 und)",
+                "Pinça Dente de Rato (1 und)",
+                "Pinça Adson Anatômica (1 und)",
+                "Pinça Adson Dente de Rato (1 und)",
+                "Afastador de Farabeuf (2 und)",
+                "Pinças Allis (2 und)",
+                "Pinças Kelly reta (3 und)",
+                "Pinças Kelly curvas (3 und)",
+                "Pinça Mosquito reta (2 und)",
+                "Pinças Mosquito curva (2 und)",
+                "Gancho de castração (1 und)",
+                "Estojo Inox perfurado (1 und)"
+            ],
+            "6": [
+                "Pinça Foerster (1 und)",
+                "Pinças Backhaus (4 und)",
+                "Cabo de bisturi nº3 (1 und)",
+                "Cabo de bisturi nº4 (1 und)",
+                "Tesoura Metzembaum reta (1 und)",
+                "Tesoura Metzembaum curva (1 und)",
+                "Tesoura Mayo Stille curva (1 und)",
+                "Tesoura Mayo Stille reta (1 und)",
+                "Porta Agulha de Mayo Hegar (2 und)",
+                "Pinça Anatômica (1 und)",
+                "Pinça Dente de Rato (1 und)",
+                "Pinça Adson Anatômica (1 und)",
+                "Pinça Adson Dente de Rato (1 und)",
+                "Afastador de Farabeuf (2 und)",
+                "Pinças Allis (2 und)",
+                "Pinças Kelly reta (3 und)",
+                "Pinças Kelly curvas (3 und)",
+                "Pinça Mosquito reta (2 und)",
+                "Pinças Mosquito curva (2 und)",
+                "Gancho de castração (1 und)",
+                "Estojo Inox perfurado (1 und)"
+            ],
+            "7": [
+                "Pinças Crile reto (4 und)",
+                "Pinças Kelly reta (3 und)",
+                "Pinça Mosquito reta (2 und)",
+                "Pinças Mosquito curva (2 und)",
+                "Estojo Inox perfurado (1 und)",
+                "Porta agulha (1 und)",
+                "Pinça Adson Dente de Rato (1 und)",
+                "Pinça Mixter (1 und)",
+                "Cabo de bisturi n3 (1 und)",
+                "Tesoura mayo (1 und)"
+            ],
+            "8": [
+                "Pinças Crile reto (4 und)",
+                "Pinças Kelly reta (3 und)",
+                "Pinça Mosquito reta (2 und)",
+                "Pinças Mosquito curva (2 und)",
+                "Estojo Inox perfurado (1 und)"
+            ],
+            "9": [
+                "Pinça Satinsky 20CM (1 und)",
+                "Pinça Satinsky 15CM (1 und)",
+                "Pinça Mixter 22cm (1 und)",
+                "Pinça Mixter 14 cm (1 und)",
+                "Estojo Inox perfurado (1 und)"
+            ]
+        };
 
+        document.addEventListener('DOMContentLoaded', () => {
+            const kitSelect = document.getElementById('kit-select');
+            const materialsRow = document.getElementById('kit-materials-row');
+            const materialsList = document.getElementById('kit-materials-list');
+
+            if (kitSelect) {
+                kitSelect.addEventListener('change', (e) => {
+                    const selectedValue = e.target.value;
+                    const materials = kitMaterials[selectedValue];
+
+                    if (materials && materials.length > 0) {
+                        materialsList.innerHTML = materials.map(item => `
+                            <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;">
+                                <span style="color: #43054E; font-weight: bold;">•</span>
+                                <span>${item}</span>
+                            </div>
+                        `).join('');
+                        materialsRow.style.display = 'flex';
+                    } else {
+                        materialsList.innerHTML = '';
+                        materialsRow.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
