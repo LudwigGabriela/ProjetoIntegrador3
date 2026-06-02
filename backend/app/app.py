@@ -2,6 +2,7 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from .routes.auth import auth_bp  
+from .routes.residuo import residuo_bp
 
 app = Flask(__name__)
 
@@ -15,3 +16,5 @@ app.register_blueprint(auth_bp)
 @app.route("/", methods=["GET"])
 def index():
     return jsonify({"mensagem": "API do VetTrace rodando com sucesso!"}), 200
+
+app.register_blueprint(residuo_bp)
