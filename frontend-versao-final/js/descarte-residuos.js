@@ -22,8 +22,34 @@ function enviarFormulario(event) {
         return
     }
 
-    alert("Resíduo registrado com sucesso")
-    limparFormulario()
+    // Requisição para o backend 
+    const dadosApi = {
+        tipo_grupo: residuo.grupo,
+        descricao: residuo.nome,
+        quantidade: Number(residuo.peso),
+        unidade: "kg",
+        data_registro: new Date().toISOString().split("T")[0],
+        setor_gerador: residuo.empresa,
+        responsavel_id: 1
+    }
+
+    fetch("http://127.0.0.1:5000/residuo", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(dadosApi)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        alert("Resíduo registrado com sucesso")
+        limparFormulario()
+    })
+    .catch(error => {
+        console.error(error)
+        alert("Erro ao registrar resíduo")
+    })
 
 }
 

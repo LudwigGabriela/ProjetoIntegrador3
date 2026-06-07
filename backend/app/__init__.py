@@ -26,6 +26,14 @@ def create_app():
     @app.route("/", methods=["GET"])
     def index():
         return jsonify({"mensagem": "API do VetTrace rodando com sucesso!"}), 200
+    
+    # Rota para testar fetch
+    @app.route("/teste", methods=["GET"])
+    def teste():
+        return {
+            "status": "ok",
+            "mensagem": "Comunicação funcionando"
+        }, 200
 
     print("\nROTAS REGISTRADAS:")
     for rule in app.url_map.iter_rules():

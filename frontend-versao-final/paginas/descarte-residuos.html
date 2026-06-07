@@ -192,7 +192,7 @@
                         <div class="form-row">
                             <div class="form-group flex-60">
                                 <label class="form-label">Grupo de Resíduo</label>
-                                <select class="form-control">
+                                <select class="form-control" id="form-residuo-input-grupo">
                                     <option value="" disabled selected>Selecione o grupo</option>
                                     <option value="A">Grupo A - Infectantes</option>
                                     <option value="B">Grupo B - Químicos</option>
@@ -202,17 +202,17 @@
                             </div>
                             <div class="form-group flex-40">
                                 <label class="form-label">Peso (kg)</label>
-                                <input type="number" class="form-control" placeholder="0.0" step="0.1" min="0">
+                                <input type="number" class="form-control" id="form-residuo-input-peso" placeholder="0.0" step="0.1" min="0">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group flex-60">
                                 <label class="form-label">Resíduo Descartado</label>
-                                <input type="text" class="form-control" placeholder="Ex: Seringas, Luvas, etc.">
+                                <input type="text" class="form-control" id="form-residuo-input-nome" placeholder="Ex: Seringas, Luvas, etc.">
                             </div>
                             <div class="form-group flex-40">
                                 <label class="form-label">Empresa</label>
-                                <select class="form-control">
+                                <select class="form-control" id="form-residuo-input-empresa">
                                     <option value="" disabled selected>Selecione o grupo</option>
                                     <option value="A">Bio Projetos Sustentáveis LTDA</option>
                                     <option value="B">SLU-DF</option>
@@ -233,13 +233,13 @@
                         <div class="form-row">
                             <div class="form-group flex-100">
                                 <label class="form-label">Observações</label>
-                                <textarea class="form-control"
+                                <textarea class="form-control" id="form-residuo-input-observacao"
                                     placeholder="Adicione informações adicionais sobre o descarte..."></textarea>
                             </div>
                         </div>
                         <div class="form-actions">
-                            <button class="btn btn-cancel">Cancelar</button>
-                            <button class="btn btn-magenta">Registrar Descarte</button>
+                            <button class="btn btn-cancel" id="form-residuo-btn-cancelar">Cancelar</button>
+                            <button class="btn btn-magenta" id="form-residuo-btn-submit">Registrar Descarte</button>
                         </div>
                     </div>
                 </div>
@@ -274,6 +274,7 @@
         </footer>
     </main>
 
+    <script src="../js/descarte-residuos.js"></script>
 </body>
 
 </html>
