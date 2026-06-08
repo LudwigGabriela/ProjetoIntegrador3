@@ -1,3 +1,13 @@
+fetch("http://127.0.0.1:5000/residuo/peso-total")
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("kpi-peso-total").textContent =
+            `${data.peso_total}`
+        document.getElementById("kpi-peso-aguardando").textContent =
+            `${data.peso_total}`
+    })
+    .catch(error => console.error(error))
+
 const btnSubmit = document.getElementById("form-residuo-btn-submit")
 const btnCancelar = document.getElementById("form-residuo-btn-cancelar")
 
@@ -12,13 +22,15 @@ function enviarFormulario(event) {
         peso: document.getElementById("form-residuo-input-peso").value,
         nome: document.getElementById("form-residuo-input-nome").value,
         empresa: document.getElementById("form-residuo-input-empresa").value,
+        data: document.getElementById("form-residuo-input-data").value,
+        hora: document.getElementById("form-residuo-input-hora").value,
         observacao: document.getElementById("form-residuo-input-observacao").value
     }
 
     const erro = validarCampos(residuo)
 
     if (erro) {
-        alert(erro)
+        mostrarMensagem(erro)
         return
     }
 
@@ -28,7 +40,7 @@ function enviarFormulario(event) {
         descricao: residuo.nome,
         quantidade: Number(residuo.peso),
         unidade: "kg",
-        data_registro: new Date().toISOString().split("T")[0],
+        data_registro: residuo.data, // Mudar para a data e hora
         setor_gerador: residuo.empresa,
         responsavel_id: 1
     }
@@ -43,12 +55,12 @@ function enviarFormulario(event) {
     .then(response => response.json())
     .then(data => {
         console.log(data)
-        alert("Resíduo registrado com sucesso")
+        mostrarMensagem("Resíduo registrado com sucesso")
         limparFormulario()
     })
     .catch(error => {
         console.error(error)
-        alert("Erro ao registrar resíduo")
+        mostrarMensagem("Erro ao registrar resíduo")
     })
 
 }
@@ -76,6 +88,8 @@ function limparFormulario() {
         "form-residuo-input-peso",
         "form-residuo-input-nome",
         "form-residuo-input-empresa",
+        "form-residuo-input-data",
+        "form-residuo-input-hora",
         "form-residuo-input-observacao"
     ]
 

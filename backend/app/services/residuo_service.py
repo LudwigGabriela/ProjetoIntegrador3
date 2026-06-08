@@ -34,3 +34,20 @@ def criar_residuo(dados):
     conn.close()
 
     return residuo_id
+
+
+def obter_peso_total():
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    cur.execute("""
+        SELECT SUM(quantidade) AS peso_total
+        FROM residuos
+    """)
+
+    resultado = cur.fetchone()
+
+    cur.close()
+    conn.close()
+
+    return resultado["peso_total"] or 0

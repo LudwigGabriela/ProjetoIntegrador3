@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from ..services.residuo_service import criar_residuo
+from ..services.residuo_service import criar_residuo, obter_peso_total
 
 residuo_bp = Blueprint("residuo", __name__)
 
@@ -13,3 +13,12 @@ def cadastrar_residuo():
         "message": "Resíduo cadastrado com sucesso",
         "id": residuo_id
     }), 201
+
+
+@residuo_bp.route("/residuo/peso-total", methods=["GET"])
+def peso_total():
+    total = obter_peso_total()
+
+    return {
+        "peso_total": total
+    }, 200
