@@ -61,6 +61,33 @@ def service_obter_residuos():
 
     return residuos
 
+def service_obter_residuos_mes(mes, ano):
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    cur.execute("""
+        SELECT
+            id,
+            tipo_grupo,
+            descricao,
+            quantidade,
+            unidade,
+            data_registro,
+            status,
+            setor_gerador,
+            responsavel_id
+        FROM residuos
+        WHERE EXTRACT(MONTH FROM data_registro) = %s
+          AND EXTRACT(YEAR FROM data_registro) = %s
+        ORDER BY data_registro DESC
+    """, (mes, ano))
+
+    residuos = cur.fetchall()
+
+    cur.close()
+    conn.close()
+
+    return residuos
 
 def service_obter_peso_total():
     conn = get_db_connection()
@@ -70,6 +97,24 @@ def service_obter_peso_total():
         SELECT SUM(quantidade) AS peso_total
         FROM residuos
     """)
+
+    resultado = cur.fetchone()
+
+    cur.close()
+    conn.close()
+
+    return resultado["peso_total"] or 0
+
+def service_obter_peso_total_mes(mes, ano):
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    cur.execute("""
+        SELECT SUM(quantidade) AS peso_total
+        FROM residuos
+        WHERE EXTRACT(MONTH FROM data_registro) = %s
+          AND EXTRACT(YEAR FROM data_registro) = %s
+    """, (mes, ano))
 
     resultado = cur.fetchone()
 

@@ -38,8 +38,6 @@ function enviarFormulario(event) {
         responsavel_id: 1
     }
 
-    alert(dadosApi.data_registro)
-
     fetch("http://127.0.0.1:5000/residuo", {
         method: "POST",
         headers: {
@@ -111,16 +109,25 @@ function carregarResiduos() {
 
 function carregarPesoResiduos() {
 
-    fetch("http://127.0.0.1:5000/residuo/peso-total")
+    const hoje = new Date()
+    const mes = hoje.getMonth() + 1
+    const ano = hoje.getFullYear()
+
+    fetch(`http://127.0.0.1:5000/residuo/peso-total?mes=${mes}&ano=${ano}`)
     .then(response => response.json())
     .then(data => {
         document.getElementById("kpi-peso-total").textContent =
             `${data.peso_total}`
+    })
+    .catch(error => console.error(error))
+
+    fetch("http://127.0.0.1:5000/residuo/peso-total")
+    .then(response => response.json())
+    .then(data => {
         document.getElementById("kpi-peso-aguardando").textContent =
             `${data.peso_total}`
     })
     .catch(error => console.error(error))
-
 
 }
 
