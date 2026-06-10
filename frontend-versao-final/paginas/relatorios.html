@@ -156,7 +156,7 @@
                     <div class="kpi-card">
                         <p class="kpi-label">Total Geral Descartado</p>
                         <div class="kpi-value-container">
-                            <span class="kpi-value">286.5</span>
+                            <span class="kpi-value" id="kpi-peso-total">0</span>
                             <span class="kpi-unit">kg</span>
                         </div>
                     </div>
@@ -164,7 +164,7 @@
                     <div class="kpi-card">
                         <p class="kpi-label">Média Semanal</p>
                         <div class="kpi-value-container">
-                            <span class="kpi-value">71.6</span>
+                            <span class="kpi-value" id="kpi-peso-media-semanal">0</span>
                             <span class="kpi-unit">kg</span>
                         </div>
                     </div>
@@ -211,7 +211,7 @@
                                 <th>Empresa Coletora</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tabela-residuos">
 
                         </tbody>
                     </table>
@@ -268,7 +268,8 @@
         </footer>
     </main>
 
-
+    <script src="../js/utils/notificacao.js"></script>
+    <script src="../js/relatorio-residuos.js"></script>
 </body>
 
 </html>
