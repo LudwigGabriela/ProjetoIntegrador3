@@ -1,6 +1,6 @@
 from database import get_db_connection
 
-def criar_residuo(dados):
+def service_criar_residuo(dados):
     conn = get_db_connection()
     cur = conn.cursor()
 
@@ -36,7 +36,33 @@ def criar_residuo(dados):
     return residuo_id
 
 
-def obter_peso_total():
+def service_obter_residuos():
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    cur.execute("""
+        SELECT
+            id,
+            tipo_grupo,
+            descricao,
+            quantidade,
+            unidade,
+            data_registro,
+            status,
+            setor_gerador
+        FROM residuos
+        ORDER BY id DESC
+    """)
+
+    residuos = cur.fetchall()
+
+    cur.close()
+    conn.close()
+
+    return residuos
+
+
+def service_obter_peso_total():
     conn = get_db_connection()
     cur = conn.cursor()
 
