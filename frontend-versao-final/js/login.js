@@ -1,34 +1,65 @@
-const form = document.getElementById("form-login")
+document.addEventListener("DOMContentLoaded", () => {
 
-form.addEventListener("submit", enviarFormulario)
+    const form = document.getElementById("loginForm");
 
-function enviarFormulario(event) {
-    event.preventDefault()
+    form.addEventListener("submit", async (e) => {
 
-    const dados = {
-        email: document.getElementById("form-login-input-email").value,
-        senha: document.getElementById("form-login-input-senha").value,
-    }
+        e.preventDefault();
 
-    const erro = validarCampos(dados)
+        const email = document.getElementById("email").value;
+        const senha = document.getElementById("senha").value;
+        const mensagem = document.getElementById("mensagem");
 
-    if (erro) {
-        alert(erro)
-        return
-    }
+        mensagem.textContent = "";
 
-    alert("Login realizado com sucesso!")
+        try {
 
-    window.location.href = "dashboard.html"
-}
+            const response = await fetch(
+                "http://127.0.0.1:5000/api/auth/login",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email,
+                        senha
+                    })
+                }
+            );
 
-function validarCampos(campos) {
+            const data = await response.json();
 
-    // obrigatórios
-    if (!campos.email || !campos.senha) {
-        return "Preencha todos os campos obrigatórios"
-    }
+            if (response.ok) {
 
-    return null
+                localStorage.setItem(
+                    "token",
+                    data.token
+                );
 
-}
+                localStorage.setItem(
+                    "usuario",
+                    JSON.stringify(data.usuario)
+                );
+
+                window.location.href = "dashboard.html";
+
+            } else {
+
+                mensagem.textContent =
+                    data.erro || "Erro ao fazer login.";
+
+            }
+
+        } catch (error) {
+
+            console.error(error);
+
+            mensagem.textContent =
+                "Erro ao conectar com o servidor.";
+
+        }
+
+    });
+
+});

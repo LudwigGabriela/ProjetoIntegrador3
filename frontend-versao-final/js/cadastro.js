@@ -1,57 +1,58 @@
-const form = document.getElementById("form-cadastro")
+const form = document.getElementById("form-cadastro");
 
-form.addEventListener("submit", enviarFormulario)
+form.addEventListener("submit", async (event) => {
 
-function enviarFormulario(event) {
-    event.preventDefault()
+    event.preventDefault();
+
+    const mensagem = document.getElementById("mensagem");
+
+    mensagem.textContent = "";
 
     const dados = {
-        nome: document.getElementById("form-cadastro-input-nome").value,
-        telefone: document.getElementById("form-cadastro-input-telefone").value,
-        email: document.getElementById("form-cadastro-input-email").value,
-        cargo: document.getElementById("form-cadastro-input-cargo").value,
-        crmv: document.getElementById("form-cadastro-input-crmv").value,
-        clinica: document.getElementById("form-cadastro-input-clinica").value,
-        senha: document.getElementById("form-cadastro-input-senha").value,
-        confirmarSenha: document.getElementById("form-cadastro-input-confirmar-senha").value
+        nome: document.getElementById("nome").value,
+        telefone: document.getElementById("telefone").value,
+        email: document.getElementById("email").value,
+        cargo: document.getElementById("cargo").value,
+        crmv: document.getElementById("crmv").value,
+        senha: document.getElementById("senha").value,
+        confirmar_senha: document.getElementById("confirmar_senha").value
+    };
+
+    try {
+
+        const response = await fetch(
+            "http://127.0.0.1:5000/api/auth/cadastro",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dados)
+            }
+        );
+
+        const data = await response.json();
+
+        if (response.ok) {
+
+            alert("Conta criada com sucesso!");
+
+            window.location.href = "login.html";
+
+        } else {
+
+            mensagem.textContent =
+                data.erro || "Erro ao criar conta.";
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        mensagem.textContent =
+            "Erro ao conectar com o servidor.";
+
     }
 
-    const erro = validarCampos(dados)
-
-    if (erro) {
-        alert(erro)
-        return
-    }
-
-    alert("Conta criada com sucesso!")
-
-    window.location.href = "dashboard.html"
-}
-
-function validarCampos(campos) {
-
-    // obrigatórios
-    if (!campos.nome ||
-        !campos.telefone ||
-        !campos.email ||
-        !campos.cargo ||
-        !campos.clinica ||
-        !campos.senha ||
-        !campos.confirmarSenha) {
-
-        return "Preencha todos os campos obrigatórios"
-    }
-
-    // confirmar senha
-    if (campos.senha !== campos.confirmarSenha) {
-        return "As senhas não coincidem"
-    }
-
-    // tamanho mínimo senha
-    if (campos.senha.length < 6) {
-        return "A senha deve ter pelo menos 6 caracteres"
-    }
-
-    return null
-
-}
+});
