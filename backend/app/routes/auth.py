@@ -46,11 +46,27 @@ def cadastro():
             return jsonify({"erro": "Este e-mail já está cadastrado no VetTrace."}), 400
 
         query = """
-            INSERT INTO usuarios (nome, email, senha_hash, perfil, ativo)
-            VALUES (%s, %s, %s, %s, TRUE)
-            RETURNING id, nome, email, perfil;
+            INSERT INTO usuarios (
+                nome,
+                email,
+                senha_hash,
+                perfil,
+                telefone,
+                crmv,
+                ativo
+            )
+            VALUES (
+                %s,
+                %s,
+                %s,
+                %s,
+                %s,
+                %s,
+                TRUE
+            )
+            RETURNING id, nome, email, perfil, telefone, crmv;
         """
-        cur.execute(query, (nome, email, senha_hash, perfil))
+        cur.execute(query, (nome, email, senha_hash, perfil, telefone, crmv))
         novo_usuario = cur.fetchone()
         conn.commit()
 
@@ -98,16 +114,16 @@ def login():
         conn = get_db_connection()
         cur = conn.cursor()
 
-        cur.execute("SELECT id, nome, email, senha_hash, perfil, ativo FROM usuarios WHERE email = %s;", (email,))
+        cur.execute("SELECT id, nome, email, senha_hash, perfil, telefone, crmv, ativo FROM usuarios WHERE email = %s;", (email,))
         usuario = cur.fetchone()
 
         if not usuario:
             return jsonify({"erro": "E-mail ou senha incorretos."}), 401
 
         if isinstance(usuario, dict):
-            u_id, u_nome, u_email, u_senha_hash, u_perfil, u_ativo = usuario["id"], usuario["nome"], usuario["email"], usuario["senha_hash"], usuario["perfil"], usuario["ativo"]
+            u_id, u_nome, u_email, u_senha_hash, u_perfil, u_telefone , u_crmv ,u_ativo = usuario["id"], usuario["nome"], usuario["email"], usuario["senha_hash"], usuario["perfil"], usuario["telefone"],usuario["crmv"] ,usuario["ativo"]
         else:
-            u_id, u_nome, u_email, u_senha_hash, u_perfil, u_ativo = usuario[0], usuario[1], usuario[2], usuario[3], usuario[4], usuario[5]
+            u_id, u_nome, u_email, u_senha_hash, u_perfil, u_telefone,u_crmv ,u_ativo = usuario[0], usuario[1], usuario[2], usuario[3], usuario[4], usuario[5],usuario[6], usuario[7]
 
         if not u_ativo or not check_password_hash(u_senha_hash, senha):
             return jsonify({"erro": "E-mail ou senha incorretos."}), 401
@@ -122,7 +138,9 @@ def login():
                 "id": u_id,
                 "nome": u_nome,
                 "email": u_email,
-                "perfil": u_perfil
+                "perfil": u_perfil,
+                "telefone": u_telefone,
+                "crmv": u_crmv
             }
         }), 200
     except Exception as e:
