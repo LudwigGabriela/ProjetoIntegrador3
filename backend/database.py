@@ -6,6 +6,6 @@ def get_db_connection():
         host="localhost",
         database="vettrace",
         user="postgres",
-        password="postgres",  
+        password="123456",  
         cursor_factory=RealDictCursor
     )
