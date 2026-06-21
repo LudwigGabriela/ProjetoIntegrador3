@@ -1,11 +1,12 @@
+import os
 import psycopg2
 from psycopg2.extras import RealDictCursor
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def get_db_connection():
     return psycopg2.connect(
-        host="localhost",
-        database="vettrace",
-        user="postgres",
-        password="123456",  
+        os.getenv("DATABASE_URL"),
         cursor_factory=RealDictCursor
     )
