@@ -12,9 +12,10 @@ def service_criar_residuo(dados):
             unidade,
             data_registro,
             setor_gerador,
+            setor_destino,
             responsavel_id
         )
-        VALUES (%s,%s,%s,%s,%s,%s,%s)
+        VALUES (%s,%s,%s,%s,%s,%s,%s,%s)
         RETURNING id
     """, (
         dados["tipo_grupo"],
@@ -23,6 +24,7 @@ def service_criar_residuo(dados):
         dados["unidade"],
         dados["data_registro"],
         dados["setor_gerador"],
+        dados["setor_destino"],
         dados["responsavel_id"]
     ))
 
@@ -49,12 +51,18 @@ def service_obter_residuos():
             unidade,
             data_registro,
             status,
-            setor_gerador
+            setor_gerador,
+            setor_destino
         FROM residuos
         ORDER BY id DESC
     """)
 
     residuos = cur.fetchall()
+
+    # Converter data para string para não ter influência de fuso horário
+    for residuo in residuos:
+        if residuo["data_registro"]:
+            residuo["data_registro"] = residuo["data_registro"].strftime("%Y-%m-%d %H:%M:%S")
 
     cur.close()
     conn.close()
@@ -75,6 +83,7 @@ def service_obter_residuos_mes(mes, ano):
             data_registro,
             status,
             setor_gerador,
+            setor_destino,
             responsavel_id
         FROM residuos
         WHERE EXTRACT(MONTH FROM data_registro) = %s

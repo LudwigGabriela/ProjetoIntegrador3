@@ -35,7 +35,8 @@ function enviarFormulario(event) {
         unidade: "kg",
         data_registro: `${residuo.data}T${residuo.hora}:00`,
         setor_gerador: residuo.empresa,
-        responsavel_id: 1
+        setor_destino: residuo.empresa,
+        responsavel_id: 5
     }
 
     fetch("http://127.0.0.1:5000/residuo", {
@@ -132,15 +133,15 @@ function carregarPesoResiduos() {
 }
 
 function formatarData(dataString) {
-    const data = new Date(dataString)
 
-    return data.toLocaleString("pt-BR", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit"
-    })
+    const partes = dataString.split(" ")
+
+    const data = partes[0]
+    const hora = partes[1]
+
+    const [ano, mes, dia] = data.split("-")
+
+    return `${dia}/${mes}/${ano} ${hora.substring(0,5)}`
 }
 
 function preencherTabela(residuos) {
