@@ -14,7 +14,7 @@ function enviarFormulario(event) {
         grupo: document.getElementById("form-residuo-input-grupo").value,
         peso: document.getElementById("form-residuo-input-peso").value,
         nome: document.getElementById("form-residuo-input-nome").value,
-        empresa: document.getElementById("form-residuo-input-empresa").value,
+        origem: document.getElementById("form-residuo-input-origem").value,
         data: document.getElementById("form-residuo-input-data").value,
         hora: document.getElementById("form-residuo-input-hora").value,
         observacao: document.getElementById("form-residuo-input-observacao").value
@@ -34,9 +34,9 @@ function enviarFormulario(event) {
         quantidade: Number(residuo.peso),
         unidade: "kg",
         data_registro: `${residuo.data}T${residuo.hora}:00`,
-        setor_gerador: residuo.empresa,
-        setor_destino: residuo.empresa,
-        responsavel_id: 5
+        setor_gerador: residuo.origem,
+        setor_destino: "-",
+        responsavel_id: 1
     }
 
     fetch("http://127.0.0.1:5000/residuo", {

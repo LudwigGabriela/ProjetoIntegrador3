@@ -196,7 +196,7 @@
                                     <option value="" disabled selected>Selecione o grupo</option>
                                     <option value="A">Grupo A - Infectantes</option>
                                     <option value="B">Grupo B - Químicos</option>
-                                    <option value="D">Grupo D - Comuns</option>
+                                    <option value="D">Grupo D - Orgânico</option>
                                     <option value="E">Grupo E - Perfurocortantes</option>
                                 </select>
                             </div>
@@ -211,11 +211,14 @@
                                 <input type="text" class="form-control" id="form-residuo-input-nome" placeholder="Ex: Seringas, Luvas, etc.">
                             </div>
                             <div class="form-group flex-40">
-                                <label class="form-label">Empresa</label>
-                                <select class="form-control" id="form-residuo-input-empresa">
-                                    <option value="" disabled selected>Selecione o grupo</option>
-                                    <option value="A">Bio Projetos Sustentáveis LTDA</option>
-                                    <option value="B">SLU-DF</option>
+                                <label class="form-label">Setor de origem</label>
+                                <select class="form-control" id="form-residuo-input-origem">
+                                    <option value="" disabled selected>Selecione o setor</option>
+                                    <option value="A">Centro Cirúrgico</option>
+                                    <option value="B">Consultório</option>
+                                    <option value="B">Internação</option>
+                                    <option value="B">Laboratório</option>
+                                    <option value="B">Central de Esterilização</option>
                                 </select>
                             </div>
                         </div>
@@ -257,7 +260,7 @@
                                 <th>Tipo de Resíduo</th>
                                 <th>Nome do Resíduo</th>
                                 <th>Peso (kg)</th>
-                                <th>Empresa</th>
+                                <th>Origem</th>
                                 <th>Usuário</th>
                                 <th>Status</th>
                             </tr>

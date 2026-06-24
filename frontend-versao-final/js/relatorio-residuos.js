@@ -69,6 +69,9 @@ function preencherTabela(residuos) {
             <td>${residuo.quantidade}</td>
             <td>${residuo.setor_gerador}</td>
             <td>${residuo.responsavel_id ?? "-"}</td>
+            <td>-</td>
+            <td>${residuo.setor_destino}</td>
+            <td>-</td>
             <td>${residuo.status}</td>
         `
 
