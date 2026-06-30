@@ -1,64 +1,459 @@
-# VetTrace
+# 🐾 VetTrace
 
-[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
+<p align="center">
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+<img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white"/>
+<img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"/>
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
+</p>
 
-O **VetTrace** é um sistema projetado para garantir o controle e a rastreabilidade na gestão de clínicas veterinárias. Focado na conformidade com as normas sanitárias, o software otimiza o ciclo de vida de insumos médicos, garantindo segurança, eficiência e auditoria transparente.
-
----
 
 ## 📌 Sobre o Projeto
 
-O desenvolvimento do VetTrace surge da necessidade de modernizar e automatizar processos críticos dentro do ambiente clínico veterinário. O sistema fornece uma solução centralizada para a Gestão de Resíduos e o controle de Materiais Esterilizados. 
+O **VetTrace** é um sistema de rastreabilidade e gerenciamento desenvolvido para clínicas veterinárias, com o objetivo de centralizar o controle de materiais esterilizados, gerenciamento de resíduos e registros operacionais.
 
-Toda a arquitetura de dados e regras de negócio foram desenhadas para seguir rigorosamente as diretrizes da RDC 222/2018, garantindo que todas as ações possuam registro de data, hora e rastreabilidade completa. A interface foi projetada para ser simples e intuitiva, facilitando a adoção por parte dos profissionais de saúde e gestores.
+A plataforma permite acompanhar todo o ciclo de vida dos materiais utilizados no ambiente clínico, garantindo maior controle, segurança e organização dos processos.
 
-## 🚀 Funcionalidades Principais
+O projeto foi desenvolvido seguindo conceitos de:
 
-### Gestão de Resíduos
-* **Registro Detalhado:** Cadastro de resíduos informando tipo (infectante, comum, perfurocortante), data, hora, quantidade e origem (cirurgia, consulta, laboratório).
-* **Controle de Destinação:** Definição do destino final do resíduo (descarte direto ou encaminhamento) com histórico de alterações para fins de auditoria.
-* **Histórico e Rastreabilidade:** Consulta completa de resíduos com filtros por data e tipo.
-* **Relatórios Gerenciais:** Geração de relatórios com o total de resíduos por período e classificação, auxiliando na análise de dados e conformidade.
+- Engenharia de Software
+- Banco de Dados Relacional
+- Desenvolvimento Web
+- Controle de acesso por usuários
+- Auditoria e rastreabilidade de informações
 
-### Materiais Esterilizados
-* **Gestão de Ciclo de Uso:** Cadastro de materiais reutilizáveis para controle de estoque e disponibilidade.
-* **Monitoramento de Status:** Atualização em tempo real do estado dos equipamentos (Sujo, Em esterilização, Esterilizado, Em uso) com registro automático de data e hora.
-* **Controle de Estoque e Pendências:** Identificação visual rápida de materiais prontos para uso e listagem de equipamentos pendentes de esterilização para evitar falta de insumos.
 
-### Dashboard e Visualização
-* **Painel de Decisão:** Dashboard geral com o resumo do sistema, exibindo o total de resíduos registrados, materiais esterilizados e pendentes, atualizado em tempo real.
+---
 
-## 🛠️ Tecnologias e Arquitetura
+# 🚀 Funcionalidades
 
-O projeto foi construído utilizando uma stack robusta e de mercado, visando performance, manutenibilidade e escalabilidade:
 
-* **Backend:** Python
-* **Frontend:** HTML5, CSS3, JavaScript
-* **Framework UI:** Bootstrap (Garantindo responsividade e uma interface clara e intuitiva)
-* **Banco de Dados:** PostgreSQL (Para armazenamento seguro e relacional, garantindo a integridade do histórico e rastreabilidade)
+## 🔐 Autenticação e Usuários
 
-## 🎨 Interface (UI/UX)
+- Cadastro de usuários
+- Login seguro com autenticação
+- Controle de permissões por perfil:
+  - Administrador
+  - Técnico
+  - Solicitante
+- Gerenciamento de perfil do usuário
 
-O design da aplicação foi pensado para ser intuitivo e focado na agilidade do dia a dia da clínica veterinária, reduzindo a curva de aprendizado dos funcionários.
 
-![Prévia do Dashboard](https://github.com/user-attachments/assets/632388b4-6449-4d80-b2e9-fbf5b686d602)
+## 🧪 Gestão de Materiais Esterilizados
 
-🔗 **[Acessar o protótipo completo no Figma](https://www.figma.com/make/8uLDzoqZsqzk8zLYMic0pg/Veterinary-Management-Dashboard-Wireframe?t=HzyuMSq0NA6IXz63-1&preview-route=%2Frelatorios)**
+- Cadastro de materiais
+- Controle de estoque
+- Acompanhamento do ciclo de esterilização
+- Controle de status:
 
-## 👥 Equipe de Desenvolvimento
+```
+Sujo
+↓
+Em esterilização
+↓
+Esterilizado
+↓
+Em uso
+```
 
-Este projeto foi desenvolvido por uma equipe multidisciplinar, aplicando metodologias ágeis e boas práticas de engenharia de software:
 
-| Nome | Papel / Especialidade | Perfil GitHub |
-| :--- | :--- | :--- |
+## 🗑️ Gestão de Resíduos
+
+- Registro de resíduos gerados
+- Classificação por tipo:
+
+  - Infectante
+  - Comum
+  - Perfurocortante
+
+- Controle de quantidade
+- Registro de origem
+- Histórico para auditoria
+
+
+## 📊 Dashboard
+
+Painel administrativo contendo:
+
+- Quantidade de materiais cadastrados
+- Resíduos registrados
+- Status dos ciclos
+- Indicadores gerais do sistema
+
+
+## 📄 Relatórios
+
+- Consulta de registros
+- Filtros por período
+- Histórico das operações realizadas
+
+
+---
+
+# 🏗️ Arquitetura do Sistema
+
+
+```
+VetTrace
+
+├── Frontend
+│   ├── HTML5
+│   ├── CSS3
+│   └── JavaScript
+│
+├── Backend
+│   ├── Python
+│   ├── Flask API
+│   └── JWT Authentication
+│
+└── Banco de Dados
+    └── PostgreSQL
+```
+
+
+---
+
+# 🛠️ Tecnologias Utilizadas
+
+
+## Backend
+
+- Python
+- Flask
+- Flask-JWT-Extended
+- Psycopg2
+- Werkzeug
+
+
+## Frontend
+
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap
+
+
+## Banco de Dados
+
+- PostgreSQL
+
+
+---
+
+# 📋 Pré-requisitos
+
+
+Antes de iniciar, tenha instalado:
+
+
+### Python
+
+Versão recomendada:
+
+```
+Python 3.10+
+```
+
+
+Download:
+
+https://www.python.org/
+
+
+---
+
+### PostgreSQL
+
+Versão recomendada:
+
+```
+PostgreSQL 14+
+```
+
+
+Download:
+
+https://www.postgresql.org/
+
+
+---
+
+# 🗄️ Configuração do Banco de Dados
+
+
+## 1. Criar o banco
+
+
+Abra o PostgreSQL e execute:
+
+
+```sql
+CREATE DATABASE vettrace;
+```
+
+
+Entre no banco:
+
+
+```sql
+\c vettrace;
+```
+
+
+---
+
+# 2. Criar tabelas
+
+
+Execute:
+
+
+```sql
+
+CREATE TABLE usuarios (
+
+    id SERIAL PRIMARY KEY,
+
+    nome VARCHAR(100) NOT NULL,
+
+    email VARCHAR(120) UNIQUE NOT NULL,
+
+    senha_hash TEXT NOT NULL,
+
+    perfil VARCHAR(30) NOT NULL,
+
+    telefone VARCHAR(20),
+
+    crmv VARCHAR(50),
+
+    ativo BOOLEAN DEFAULT TRUE,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+);
+
+
+```
+
+
+---
+
+# 👤 Perfis de Usuário
+
+
+| Perfil | Permissões |
+|---|---|
+| Admin | Controle completo do sistema |
+| Técnico | Operações clínicas e materiais |
+| Solicitante | Solicitação de materiais |
+
+
+---
+
+# ⚙️ Configuração do Backend
+
+
+Entre na pasta do backend:
+
+
+```bash
+cd backend
+```
+
+
+Crie um ambiente virtual:
+
+
+```bash
+python -m venv venv
+```
+
+
+Ative:
+
+
+Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+
+Linux:
+
+```bash
+source venv/bin/activate
+```
+
+
+Instale as dependências:
+
+
+```bash
+pip install -r requirements.txt
+```
+
+
+---
+
+# 🔑 Configuração das variáveis
+
+
+Crie um arquivo:
+
+
+```
+.env
+```
+
+
+Exemplo:
+
+
+```env
+DATABASE_HOST=localhost
+
+DATABASE_NAME=vettrace
+
+DATABASE_USER=postgres
+
+DATABASE_PASSWORD=sua_senha
+
+JWT_SECRET_KEY=sua_chave_secreta
+```
+
+
+---
+
+# ▶️ Executando o Backend
+
+
+Execute:
+
+
+```bash
+python app.py
+```
+
+
+Servidor iniciado:
+
+
+```
+http://127.0.0.1:5000
+```
+
+
+---
+
+# 🌐 Executando o Frontend
+
+
+Entre na pasta:
+
+
+```bash
+cd frontend
+```
+
+
+Abra:
+
+```
+paginas/login.html
+```
+
+
+ou utilize o Live Server do VS Code.
+
+
+---
+
+# 🔐 Login Inicial
+
+
+Após cadastrar um usuário, utilize:
+
+
+```
+Email:
+usuario cadastrado
+
+
+Senha:
+senha cadastrada
+```
+
+
+---
+
+# 📂 Estrutura de Pastas
+
+
+```
+VetTrace
+
+├── backend
+│   ├── routes
+│   ├── models
+│   ├── database
+│   └── app.py
+│
+├── frontend
+│   ├── paginas
+│   ├── estilos
+│   ├── js
+│   └── assets
+│
+└── README.md
+```
+
+
+---
+
+# 🎨 Interface
+
+
+![Dashboard VetTrace](https://github.com/user-attachments/assets/632388b4-6449-4d80-b2e9-fbf5b686d602)
+
+
+
+Protótipo:
+
+[Figma - VetTrace](https://www.figma.com/make/8uLDzoqZsqzk8zLYMic0pg/Veterinary-Management-Dashboard-Wireframe)
+
+
+---
+
+# 📈 Próximas Melhorias
+
+- [ ] Controle completo de permissões
+- [ ] Exportação de relatórios PDF
+- [ ] Histórico completo de auditoria
+- [ ] Dashboard com gráficos avançados
+- [ ] Notificações internas
+
+
+---
+
+# 👥 Equipe de Desenvolvimento
+
+
+| Nome | Função | GitHub |
+|---|---|---|
 | **Caio Peliz** | Scrum Master & Desenvolvedor | [@caiocardoso418](https://github.com/caiocardoso418) |
-| **Gabriela Ludwig** | Product Owner (PO) & Desenvolvedora | [@LudwigGabriela](https://github.com/LudwigGabriela) |
-| **Juan Talyson** | Database Administrator (DBA) | [@juantalyson](https://github.com/juantalyson) |
+| **Gabriela Ludwig** | Product Owner & Desenvolvedora | [@LudwigGabriela](https://github.com/LudwigGabriela) |
+| **Juan Talyson** | Database Administrator | [@juantalyson](https://github.com/juantalyson) |
 | **Maria Elis** | UI/UX Designer & Documentação | [@mariaelis23](https://github.com/mariaelis23) |
 | **Carlos Eduardo** | Tech Leader & Arquitetura | [@karlosmafra](https://github.com/karlosmafra) |
 
+
+---
+
+# 📄 Licença
+
+Projeto desenvolvido para fins acadêmicos no Projeto Integrador III.
+
+© 2026 VetTrace
