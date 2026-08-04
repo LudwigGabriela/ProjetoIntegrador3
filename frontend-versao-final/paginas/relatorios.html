@@ -91,10 +91,10 @@
 
         <div class="sidebar-footer">
             <div class="user-info">
-                <div class="user-avatar">US</div>
+                <div class="user-avatar" id="avatarSidebar">US</div>
                 <div class="user-details">
-                    <p class="user-name">Usuário SILVA</p>
-                    <p class="user-role">Veterinário</p>
+                    <p class="user-name" id="sidebarNome">Usuário SILVA</p>
+                    <p class="user-role" id="sidebarPerfil">Veterinário</p>
                 </div>
             </div>
             <div class="footer-actions">
@@ -125,7 +125,7 @@
             <div class="main-header">
                 <div class="header-text">
                     <h2>RELATÓRIOS E COMPLIANCE ANVISA</h2>
-                    <p>CONSOLIDAÇÃO MENSAL DE RESÍDUOS SÓLIDOS - OUTUBRO 2023</p>
+                    <p>CONSOLIDAÇÃO MENSAL DE RESÍDUOS SÓLIDOS - JULHO 2026</p>
                 </div>
                 <div style="display: flex; gap: 1rem; align-items: center;">
                     <a href="solicitar-material.html" class="btn-magenta"
@@ -144,7 +144,7 @@
                             <line x1="8" y1="2" x2="8" y2="6"></line>
                             <line x1="3" y1="10" x2="21" y2="10"></line>
                         </svg>
-                        Outubro / 2023
+                        JULHO / 2026
                     </button>
                 </div>
             </div>
@@ -174,7 +174,7 @@
                         <div class="kpi-value-container">
                             <span class="kpi-value" style="font-size: 1.5rem; color: #000000;">Empresa ABC</span>
                         </div>
-                        <p class="kpi-subtext kpi-subtext-alert">15/10/2023 - 14:30</p>
+                        <p class="kpi-subtext kpi-subtext-alert">15/06/2026 - 14:30</p>
                     </div>
                 </div>
 
@@ -210,7 +210,7 @@
                                 <th>Peso (kg)</th>
                                 <th>Origem</th>
                                 <th>Usuário</th>
-                                <th>MTR Gerado</th>
+                                <!--<th>MTR Gerado</th>-->
                                 <th>Empresa Coletora</th>
                                 <th>Data e Hora da Coleta</th>
                                 <th>Status</th>
@@ -274,6 +274,7 @@
     </main>
 
     <script src="../js/utils/notificacao.js"></script>
+    <script src="../js/utils/usuario.js"></script>
     <script src="../js/relatorio-residuos.js"></script>
 </body>
 

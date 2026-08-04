@@ -64,7 +64,7 @@ function enviarFormulario(event) {
 function validarCampos(campos) {
 
     // obrigatórios
-    if (!campos.grupo || !campos.peso || !campos.nome || !campos.empresa || !campos.data || !campos.hora) {
+    if (!campos.grupo || !campos.peso || !campos.nome || !campos.origem || !campos.data || !campos.hora) {
         return "Preencha todos os campos obrigatórios"
     }
 
@@ -83,7 +83,7 @@ function limparFormulario() {
         "form-residuo-input-grupo",
         "form-residuo-input-peso",
         "form-residuo-input-nome",
-        "form-residuo-input-empresa",
+        "form-residuo-input-origem",
         "form-residuo-input-data",
         "form-residuo-input-hora",
         "form-residuo-input-observacao"

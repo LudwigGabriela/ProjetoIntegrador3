@@ -32,7 +32,7 @@ function carregarPesoResiduos() {
     fetch("http://127.0.0.1:5000/residuo/peso-total")
     .then(response => response.json())
     .then(data => {
-        document.getElementById("kpi-peso-aguardando").textContent =
+        document.getElementById("kpi-peso-media-semanal").textContent =
             `${data.peso_total}`
     })
     .catch(error => console.error(error))
@@ -70,7 +70,6 @@ function preencherTabela(residuos) {
             <td>${residuo.setor_gerador}</td>
             <td>${residuo.responsavel_id ?? "-"}</td>
             <td>-</td>
-            <td>${residuo.setor_destino}</td>
             <td>-</td>
             <td>${residuo.status}</td>
         `

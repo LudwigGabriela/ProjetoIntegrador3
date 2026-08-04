@@ -37,7 +37,7 @@ form.addEventListener("submit", async (event) => {
 
             alert("Conta criada com sucesso!");
 
-            window.location.href = "login.html";
+            window.location.href = "descarte-residuos.html";
 
         } else {
 
