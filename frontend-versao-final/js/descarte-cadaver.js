@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", carregarCadaveres)
+
 const btnSubmit = document.getElementById("form-cadaver-btn-submit")
 const btnCancelar = document.getElementById("form-cadaver-btn-cancelar")
 
@@ -29,17 +31,16 @@ function enviarFormulario(event) {
         return
     }
 
-    /*
     // Requisição para o backend 
     const dadosApi = {
-        tipo_grupo: cadaver.grupo,
-        descricao: cadaver.nome,
-        quantidade: Number(cadaver.peso),
-        unidade: "kg",
-        data_registro: `${cadaver.data}T${cadaver.hora}:00`,
-        setor_gerador: cadaver.origem,
-        setor_destino: "-",
-        responsavel_id: 1
+        especie: cadaver.especie,
+        identificacao: cadaver.nome,
+        idade_anos: Number(cadaver.idade),
+        peso_kg: Number(cadaver.peso),
+        data_entrada: `${cadaver.data_entrada}T${cadaver.hora_entrada}:00`,
+        status: "congelado",
+        observacoes: cadaver.observacao,
+        registrado_por: 1
     }
 
     fetch("http://127.0.0.1:5000/cadaver", {
@@ -52,16 +53,14 @@ function enviarFormulario(event) {
     .then(response => response.json())
     .then(data => {
         console.log(data)
-        mostrarMensagem("Resíduo registrado com sucesso")
-        limparFormulario()
-        carregarcadavers()
-        carregarPesocadavers()
+        mostrarMensagem("Cadáver registrado com sucesso")
+        //limparFormulario()
+        carregarCadaveres()
     })
     .catch(error => {
         console.error(error)
-        mostrarMensagem("Erro ao registrar resíduo")
+        mostrarMensagem("Erro ao registrar cadáver")
     })
-    */
 
 }
 
@@ -104,13 +103,12 @@ function limparFormulario() {
 
 }
 
-/*
-function carregarcadavers() {
+function carregarCadaveres() {
 
     fetch("http://127.0.0.1:5000/cadaver")
         .then(response => response.json())
-        .then(cadavers => {
-            preencherTabela(cadavers)
+        .then(cadaveres => {
+            preencherTabela(cadaveres)
         })
         .catch(error => {
             console.error(error)
@@ -130,30 +128,32 @@ function formatarData(dataString) {
     return `${dia}/${mes}/${ano} ${hora.substring(0,5)}`
 }
 
-function preencherTabela(cadavers) {
+function preencherTabela(cadaveres) {
 
-    const tbody = document.getElementById("tabela-cadavers")
+    const tbody = document.getElementById("tabela-cadaveres")
 
     tbody.innerHTML = ""
 
-    cadavers.forEach(cadaver => {
+    cadaveres.forEach(cadaver => {
 
         const linha = document.createElement("tr")
 
         linha.innerHTML = `
             <td>${cadaver.id}</td>
-            <td>${formatarData(cadaver.data_registro)}</td>
-            <td>${cadaver.tipo_grupo}</td>
-            <td>${cadaver.descricao}</td>
-            <td>${cadaver.quantidade}</td>
-            <td>${cadaver.setor_gerador}</td>
-            <td>${cadaver.responsavel_id ?? "-"}</td>
-            <td>${cadaver.status}</td>
+            <td>${cadaver.identificacao}</td>
+            <td>${cadaver.peso_kg}</td>
+            <td>-</td>
+            <td>${cadaver.especie}</td>
+            <td>${cadaver.idade_anos}</td>
+            <td>-</td>
+            <td>${cadaver.data_entrada}</td>
+            <td>-</td>
+            <td>-</td>
+            <td>${cadaver.registrado_por}</td>
         `
 
         tbody.appendChild(linha)
 
     })
 
-} 
-*/
+}

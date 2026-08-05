@@ -18,9 +18,11 @@ def create_app():
 
     from app.routes.auth import auth_bp
     from app.routes.residuo import residuo_bp
+    from app.routes.cadaver import cadaver_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(residuo_bp)
+    app.register_blueprint(cadaver_bp)
     
     # Rota raiz para testar no navegador
     @app.route("/", methods=["GET"])
