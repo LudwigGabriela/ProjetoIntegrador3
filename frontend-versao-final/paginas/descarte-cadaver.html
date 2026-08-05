@@ -138,30 +138,26 @@
                     <div class="section-body">
                         <div class="form-row">
                             <div class="form-group flex-60">
-                                <label class="form-label">ID</label>
-                                <input type="text" class="form-control" placeholder="Código do Animal">
+                                <label class="form-label">Nome do Animal</label>
+                                <input type="text" class="form-control" id="form-cadaver-input-nome" placeholder="Ex: Bob, Mel">
                             </div>
                             <div class="form-group flex-40">
                                 <label class="form-label">Peso (kg)</label>
-                                <input type="number" class="form-control" placeholder="0.0" step="0.1" min="0">
+                                <input type="number" class="form-control" id="form-cadaver-input-peso" placeholder="0.0" step="0.1" min="0">
                             </div>
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group flex-40">
-                                <label class="form-label">Nome do Animal</label>
-                                <input type="text" class="form-control" placeholder="Ex: Bob, Mel">
-                            </div>
-                            <div class="form-group flex-60">
+                            <div class="form-group flex-100">
                                 <label class="form-label">Nome do Proprietário</label>
-                                <input type="text" class="form-control" placeholder="Nome completo do tutor">
+                                <input type="text" class="form-control" id="form-cadaver-input-nome-proprietario" placeholder="Nome completo do tutor">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group flex-60">
                                 <label class="form-label">Espécie</label>
-                                <select class="form-control">
+                                <select class="form-control" id="form-cadaver-input-especie">
                                     <option value="" disabled selected>Selecione a espécie</option>
                                     <option value="Canino">Canino</option>
                                     <option value="Felino">Felino</option>
@@ -172,18 +168,18 @@
                             </div>
                             <div class="form-group flex-40">
                                 <label class="form-label">Idade</label>
-                                <input type="text" class="form-control" placeholder="Ex: 5 anos, 3 meses">
+                                <input type="text" class="form-control" id="form-cadaver-input-idade" placeholder="Ex: 5 anos, 3 meses">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group flex-60">
                                 <label class="form-label">Causa do Óbito</label>
-                                <input type="text" class="form-control" placeholder="Causa da morte">
+                                <input type="text" class="form-control" id="form-cadaver-input-causa" placeholder="Causa da morte">
                             </div>
                             <div class="form-group flex-40">
                                 <label class="form-label">Retirada</label>
-                                <select class="form-control">
+                                <select class="form-control" id="form-cadaver-input-destino">
                                     <option value="" disabled selected>Selecione o grupo/destino</option>
                                     <option value="A">Labocien</option>
                                     <option value="B">Empresa Terceirizada (descarte)</option>
@@ -196,11 +192,11 @@
                         <div class="form-row">
                             <div class="form-group flex-60">
                                 <label class="form-label">Data de Entrada</label>
-                                <input type="date" class="form-control">
+                                <input type="date" class="form-control" id="form-cadaver-input-data-entrada">
                             </div>
                             <div class="form-group flex-40">
                                 <label class="form-label">Hora de Entrada</label>
-                                <input type="time" class="form-control">
+                                <input type="time" class="form-control" id="form-cadaver-input-hora-entrada">
                             </div>
                         </div>
 
@@ -208,31 +204,33 @@
                         <div class="form-row">
                             <div class="form-group flex-60">
                                 <label class="form-label">Data de Saída</label>
-                                <input type="date" class="form-control">
+                                <input type="date" class="form-control" id="form-cadaver-input-data-saida">
                             </div>
                             <div class="form-group flex-40">
                                 <label class="form-label">Hora de Saída</label>
-                                <input type="time" class="form-control">
+                                <input type="time" class="form-control" id="form-cadaver-input-hora-saida">
                             </div>
                         </div>
 
+                        <!--
                         <div class="form-row">
                             <div class="form-group flex-100">
                                 <label class="form-label">Responsável pelo Registro</label>
                                 <input type="text" class="form-control" placeholder="Nome do profissional responsável">
                             </div>
                         </div>
+                        -->
 
                         <div class="form-row">
                             <div class="form-group flex-100">
                                 <label class="form-label">Observações</label>
-                                <textarea class="form-control"
+                                <textarea class="form-control" id="form-cadaver-input-observacao"
                                     placeholder="Adicione informações adicionais sobre o descarte..."></textarea>
                             </div>
                         </div>
                         <div class="form-actions">
-                            <button class="btn btn-cancel">Cancelar</button>
-                            <button class="btn btn-magenta">Registrar Descarte</button>
+                            <button class="btn btn-cancel" id="form-cadaver-btn-cancelar">Cancelar</button>
+                            <button class="btn btn-magenta" id="form-cadaver-btn-submit">Registrar Cadáver</button>
                         </div>
                     </div>
                 </div>
@@ -259,7 +257,7 @@
                                     <th>Responsável pelo Registro</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="tabela-cadaver">
                             </tbody>
                         </table>
                     </div>
@@ -272,7 +270,9 @@
         </footer>
     </main>
 
+    <script src="../js/utils/notificacao.js"></script>
     <script src="../js/utils/usuario.js"></script>
+    <script src="../js/descarte-cadaver.js"></script>
 </body>
 
 </html>
