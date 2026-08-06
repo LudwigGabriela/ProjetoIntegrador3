@@ -1,0 +1,27 @@
+﻿Tasks,Status,Responsável,Prazo,Prioridade,Tipo de tarefa,Nível de esforço
+[Fase 1] Configuração do repositório,Concluído,,,Baixa,💬 Solicitação de recurso,Pequeno
+[Fase 1] Diagrama de Caso de Uso,Concluído,,,,💬 Solicitação de recurso,
+[Fase 1] Protótipos de Tela | Wireframe,Concluído,Maria Elis de Almeida Braz,,,💬 Solicitação de recurso,
+[Fase 1] Estrutura inicial do frontend,Concluído,,,,💬 Solicitação de recurso,
+[Fase 1] Perfil do Usuário,Concluído,,,,💬 Solicitação de recurso,
+[Fase 1] Tela de login,Concluído,caio.pelizch@sempreceub.com,,,,
+,,,,,💬 Solicitação de recurso,
+[Fase 1] História de Usuários,Concluído,"Maria Elis de Almeida Braz, Gabriela Moraes Ludwig, Carlos Mafra",,,,
+"[Fase 1] Tela de cadastro ",Concluído,,,,,
+[Fase 1] Dashboard principal,Não iniciado,,,,,
+[Fase 2] Estrutura do banco de dados,Concluído,Juan  Talyson,,Alta,💬 Solicitação de recurso,Média
+[Fase 3] Estrutura inicial do backend,Concluído,"caio.pelizch@sempreceub.com, Carlos Mafra",,,,
+[Fase 3] Casdatro e edição de resíduos,Concluído,Carlos Mafra,,,,
+[Fase 3] Registro resíduo / Cadastro de materiais / Controle de estoque,Concluído,Carlos Mafra,03/02/2025,,,
+[Fase 3] Listagem de resíduos / Relatórios (Resíduos e Materiais),Em andamento,Carlos Mafra,28/02/2025,,,
+[Fase 4] Atualização de status,Não iniciado,,,,,
+[Fase 4] Exclusão de resíduos,Não iniciado,,,,,
+[Fase 4] Testes do backend,Concluído,caio.pelizch@sempreceub.com,,,,
+[Fase 4] Testes do frontend,Em andamento,caio.pelizch@sempreceub.com,,,,
+[Fase 5] Evidências Práticas,Em andamento,,,,,
+[Fase 1] Critério de Aceitação,Concluído,,12/05/2026,Alta,💅 Aperfeiçoar,Média
+[Fase 1] Controle de estoque,Em andamento,,,,,
+[Fase 1] Relatórios de materiais,Não iniciado,,,,,
+[Fase 1] Cadastro de materiais,Não iniciado,,,,,
+[Fase 1] Controle de usuários,Concluído,caio.pelizch@sempreceub.com,,,,
+,,,,,,
