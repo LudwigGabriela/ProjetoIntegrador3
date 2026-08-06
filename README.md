@@ -454,6 +454,6 @@ Protótipo:
 
 # 📄 Licença
 
-Projeto desenvolvido para fins acadêmicos no Projeto Integrador III.
+Projeto desenvolvido para fins acadêmicos nos Projetos Integradores III e IV.
 
 © 2026 VetTrace
