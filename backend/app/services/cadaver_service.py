@@ -13,9 +13,13 @@ def service_criar_cadaver(dados):
             data_entrada,
             status,
             observacoes,
-            registrado_por
+            registrado_por,
+            nome_proprietario,
+            causa_obito,
+            destino_id,
+            data_saida
         )
-        VALUES (%s,%s,%s,%s,%s,%s,%s,%s)
+        VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
         RETURNING id
     """, (
         dados["especie"],
@@ -25,7 +29,11 @@ def service_criar_cadaver(dados):
         dados["data_entrada"],
         dados["status"],
         dados["observacoes"],
-        dados["registrado_por"]
+        dados["registrado_por"],
+        dados["nome_proprietario"],
+        dados["causa_obito"],
+        dados["destino_id"],
+        dados["data_saida"]
     ))
 
     cadaver_id = cur.fetchone()["id"]
@@ -52,19 +60,23 @@ def service_obter_cadaveres():
             data_entrada,
             status,
             observacoes,
-            registrado_por
+            registrado_por,
+            nome_proprietario,
+            causa_obito,
+            destino_id,
+            data_saida
         FROM cadaveres
         ORDER BY id DESC
     """)
 
     cadaveres = cur.fetchall()
 
-    """
     # Converter data para string para não ter influência de fuso horário
     for cadaver in cadaveres:
-        if cadaver["data_registro"]:
-            cadaver["data_registro"] = cadaver["data_registro"].strftime("%Y-%m-%d %H:%M:%S")
-    """
+        if cadaver["data_entrada"]:
+            cadaver["data_entrada"] = cadaver["data_entrada"].strftime("%Y-%m-%d %H:%M:%S")
+        if cadaver["data_saida"]:
+                    cadaver["data_saida"] = cadaver["data_saida"].strftime("%Y-%m-%d %H:%M:%S")
 
     cur.close()
     conn.close()

@@ -40,7 +40,11 @@ function enviarFormulario(event) {
         data_entrada: `${cadaver.data_entrada}T${cadaver.hora_entrada}:00`,
         status: "congelado",
         observacoes: cadaver.observacao,
-        registrado_por: 1
+        registrado_por: 1,
+        nome_proprietario: cadaver.nome_proprietario,
+        causa_obito: cadaver.causa,
+        destino_id: cadaver.destino,
+        data_saida: `${cadaver.data_saida}T${cadaver.hora_saida}:00` // Deixar não obrigatória
     }
 
     fetch("http://127.0.0.1:5000/cadaver", {
@@ -54,7 +58,7 @@ function enviarFormulario(event) {
     .then(data => {
         console.log(data)
         mostrarMensagem("Cadáver registrado com sucesso")
-        //limparFormulario()
+        limparFormulario()
         carregarCadaveres()
     })
     .catch(error => {
@@ -134,6 +138,8 @@ function preencherTabela(cadaveres) {
 
     tbody.innerHTML = ""
 
+    destinos_cadaver = ['Labocien', 'Empresa Terceirizada', 'Proprietário']
+
     cadaveres.forEach(cadaver => {
 
         const linha = document.createElement("tr")
@@ -142,13 +148,13 @@ function preencherTabela(cadaveres) {
             <td>${cadaver.id}</td>
             <td>${cadaver.identificacao}</td>
             <td>${cadaver.peso_kg}</td>
-            <td>-</td>
+            <td>${cadaver.nome_proprietario}</td>
             <td>${cadaver.especie}</td>
             <td>${cadaver.idade_anos}</td>
-            <td>-</td>
-            <td>${cadaver.data_entrada}</td>
-            <td>-</td>
-            <td>-</td>
+            <td>${cadaver.causa_obito}</td>
+            <td>${formatarData(cadaver.data_entrada)}</td>
+            <td>${formatarData(cadaver.data_saida)}</td>
+            <td>${destinos_cadaver[cadaver.destino_id-1]}</td>
             <td>${cadaver.registrado_por}</td>
         `
 

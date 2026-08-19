@@ -37,8 +37,10 @@ def create_app():
             "mensagem": "Comunicação funcionando"
         }, 200
 
+    '''
     print("\nROTAS REGISTRADAS:")
     for rule in app.url_map.iter_rules():
         print(rule)
+    '''
 
     return app
