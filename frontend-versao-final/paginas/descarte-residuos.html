@@ -7,6 +7,8 @@
     <title>VetTrace - Descarte de Resíduos</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../estilos/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
 <body>
 
@@ -40,7 +42,8 @@
                 <span>Estoque Estéril</span>
             </a>
             <a href="ciclos.html" class="nav-item">
-                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
                     <path d="M3 3v5h5" />
                     <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
@@ -202,13 +205,15 @@
                             </div>
                             <div class="form-group flex-40">
                                 <label class="form-label">Peso (kg)</label>
-                                <input type="number" class="form-control" id="form-residuo-input-peso" placeholder="0.0" step="0.1" min="0">
+                                <input type="number" class="form-control" id="form-residuo-input-peso" placeholder="0.0"
+                                    step="0.1" min="0">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group flex-60">
                                 <label class="form-label">Resíduo Descartado</label>
-                                <input type="text" class="form-control" id="form-residuo-input-nome" placeholder="Ex: Seringas, Luvas, etc.">
+                                <input type="text" class="form-control" id="form-residuo-input-nome"
+                                    placeholder="Ex: Seringas, Luvas, etc.">
                             </div>
                             <div class="form-group flex-40">
                                 <label class="form-label">Setor de origem</label>
@@ -263,6 +268,7 @@
                                 <th>Origem</th>
                                 <th>Usuário</th>
                                 <th>Status</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody id="tabela-residuos">
@@ -277,6 +283,9 @@
         </footer>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
     <script src="../js/utils/notificacao.js"></script>
     <script src="../js/utils/usuario.js"></script>
     <script src="../js/descarte-residuos.js"></script>
