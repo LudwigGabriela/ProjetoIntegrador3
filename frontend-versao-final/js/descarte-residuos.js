@@ -46,18 +46,18 @@ function enviarFormulario(event) {
         },
         body: JSON.stringify(dadosApi)
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data)
-        mostrarMensagem("Resíduo registrado com sucesso")
-        limparFormulario()
-        carregarResiduos()
-        carregarPesoResiduos()
-    })
-    .catch(error => {
-        console.error(error)
-        mostrarMensagem("Erro ao registrar resíduo")
-    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            mostrarMensagem("Resíduo registrado com sucesso")
+            limparFormulario()
+            carregarResiduos()
+            carregarPesoResiduos()
+        })
+        .catch(error => {
+            console.error(error)
+            mostrarMensagem("Erro ao registrar resíduo")
+        })
 
 }
 
@@ -115,20 +115,20 @@ function carregarPesoResiduos() {
     const ano = hoje.getFullYear()
 
     fetch(`http://127.0.0.1:5000/residuo/peso-total?mes=${mes}&ano=${ano}`)
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById("kpi-peso-total").textContent =
-            `${data.peso_total}`
-    })
-    .catch(error => console.error(error))
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("kpi-peso-total").textContent =
+                `${data.peso_total}`
+        })
+        .catch(error => console.error(error))
 
     fetch("http://127.0.0.1:5000/residuo/peso-total")
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById("kpi-peso-aguardando").textContent =
-            `${data.peso_total}`
-    })
-    .catch(error => console.error(error))
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("kpi-peso-aguardando").textContent =
+                `${data.peso_total}`
+        })
+        .catch(error => console.error(error))
 
 }
 
@@ -141,7 +141,7 @@ function formatarData(dataString) {
 
     const [ano, mes, dia] = data.split("-")
 
-    return `${dia}/${mes}/${ano} ${hora.substring(0,5)}`
+    return `${dia}/${mes}/${ano} ${hora.substring(0, 5)}`
 }
 
 function preencherTabela(residuos) {
@@ -163,6 +163,11 @@ function preencherTabela(residuos) {
             <td>${residuo.setor_gerador}</td>
             <td>${residuo.responsavel_id ?? "-"}</td>
             <td>${residuo.status}</td>
+            <td>
+                <button class="btn btn-sm btn-primary btn-editar" data-id="${residuo.id}">Editar</button>
+                <button class="btn btn-sm btn-danger btn-excluir" data-id="${residuo.id}">Excluir</button>
+            </td>
+
         `
 
         tbody.appendChild(linha)
