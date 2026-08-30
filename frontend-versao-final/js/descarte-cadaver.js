@@ -54,17 +54,17 @@ function enviarFormulario(event) {
         },
         body: JSON.stringify(dadosApi)
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data)
-        mostrarMensagem("Cadáver registrado com sucesso")
-        limparFormulario()
-        carregarCadaveres()
-    })
-    .catch(error => {
-        console.error(error)
-        mostrarMensagem("Erro ao registrar cadáver")
-    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            mostrarMensagem("Cadáver registrado com sucesso")
+            limparFormulario()
+            carregarCadaveres()
+        })
+        .catch(error => {
+            console.error(error)
+            mostrarMensagem("Erro ao registrar cadáver")
+        })
 
 }
 
@@ -129,7 +129,7 @@ function formatarData(dataString) {
 
     const [ano, mes, dia] = data.split("-")
 
-    return `${dia}/${mes}/${ano} ${hora.substring(0,5)}`
+    return `${dia}/${mes}/${ano} ${hora.substring(0, 5)}`
 }
 
 function preencherTabela(cadaveres) {
@@ -154,8 +154,12 @@ function preencherTabela(cadaveres) {
             <td>${cadaver.causa_obito}</td>
             <td>${formatarData(cadaver.data_entrada)}</td>
             <td>${formatarData(cadaver.data_saida)}</td>
-            <td>${destinos_cadaver[cadaver.destino_id-1]}</td>
+            <td>${destinos_cadaver[cadaver.destino_id - 1]}</td>
             <td>${cadaver.registrado_por}</td>
+            <td>
+                <button class="btn btn-sm btn-primary btn-editar" data-id="${cadaver.id}">Editar</button>
+                <button class="btn btn-sm btn-danger btn-excluir" data-id="${cadaver.id}">Excluir</button>
+            </td>
         `
 
         tbody.appendChild(linha)
