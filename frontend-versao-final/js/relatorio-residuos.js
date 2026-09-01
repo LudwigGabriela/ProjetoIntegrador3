@@ -19,7 +19,7 @@ function carregarPesoResiduos() {
 
     const hoje = new Date()
     const mes = hoje.getMonth() + 1
-    const ano = hoje.getFullYear()
+    const ano = hoje.getFullYear() 
 
     fetch(`http://127.0.0.1:5000/residuo/peso-total?mes=${mes}&ano=${ano}`)
     .then(response => response.json())
@@ -68,7 +68,7 @@ function preencherTabela(residuos) {
             <td>${residuo.descricao}</td>
             <td>${residuo.quantidade}</td>
             <td>${residuo.setor_gerador}</td>
-            <td>${residuo.responsavel_id ?? "-"}</td>
+            <td>${residuo.responsavel_nome ?? "-"}</td>
             <td>-</td>
             <td>-</td>
             <td>${residuo.status}</td>

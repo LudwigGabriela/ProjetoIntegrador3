@@ -128,8 +128,13 @@ def login():
         if not u_ativo or not check_password_hash(u_senha_hash, senha):
             return jsonify({"erro": "E-mail ou senha incorretos."}), 401
 
-        identity = {"id": u_id, "perfil": u_perfil}
-        token_acesso = create_access_token(identity=identity)
+        identity = str(u_id)
+        token_acesso = create_access_token(
+            identity=identity,
+            additional_claims={
+                "perfil": u_perfil
+    }
+)
 
         return jsonify({
             "mensagem": "Login realizado com sucesso!",

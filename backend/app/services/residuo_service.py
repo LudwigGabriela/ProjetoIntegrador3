@@ -1,6 +1,7 @@
 from database import get_db_connection
 
-def service_criar_residuo(dados):
+
+def service_criar_residuo(dados, usuario_id):
     conn = get_db_connection()
     cur = conn.cursor()
 
@@ -15,7 +16,7 @@ def service_criar_residuo(dados):
             setor_destino,
             responsavel_id
         )
-        VALUES (%s,%s,%s,%s,%s,%s,%s,%s)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
         RETURNING id
     """, (
         dados["tipo_grupo"],
@@ -25,7 +26,7 @@ def service_criar_residuo(dados):
         dados["data_registro"],
         dados["setor_gerador"],
         dados["setor_destino"],
-        dados["responsavel_id"]
+        usuario_id
     ))
 
     residuo_id = cur.fetchone()["id"]
@@ -44,25 +45,30 @@ def service_obter_residuos():
 
     cur.execute("""
         SELECT
-            id,
-            tipo_grupo,
-            descricao,
-            quantidade,
-            unidade,
-            data_registro,
-            status,
-            setor_gerador,
-            setor_destino
-        FROM residuos
-        ORDER BY id DESC
+            r.id,
+            r.tipo_grupo,
+            r.descricao,
+            r.quantidade,
+            r.unidade,
+            r.data_registro,
+            r.status,
+            r.setor_gerador,
+            r.setor_destino,
+            r.responsavel_id,
+            u.nome AS responsavel_nome
+        FROM residuos r
+        LEFT JOIN usuarios u
+            ON r.responsavel_id = u.id
+        ORDER BY r.id DESC
     """)
 
     residuos = cur.fetchall()
 
-    # Converter data para string para não ter influência de fuso horário
     for residuo in residuos:
         if residuo["data_registro"]:
-            residuo["data_registro"] = residuo["data_registro"].strftime("%Y-%m-%d %H:%M:%S")
+            residuo["data_registro"] = residuo["data_registro"].strftime(
+                "%Y-%m-%d %H:%M:%S"
+            )
 
     cur.close()
     conn.close()

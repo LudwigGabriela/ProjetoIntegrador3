@@ -27,7 +27,24 @@ function enviarFormulario(event) {
         return
     }
 
-    // Requisição para o backend 
+    // Recupera o usuário logado
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+
+    if (!usuario || !usuario.id) {
+        mostrarMensagem("Usuário não identificado. Faça login novamente.");
+        window.location.href = "login.html";
+        return;
+    }
+
+    // Recupera o token JWT
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+        mostrarMensagem("Sessão expirada. Faça login novamente.");
+        window.location.href = "login.html";
+        return;
+    }
+
     const dadosApi = {
         tipo_grupo: residuo.grupo,
         descricao: residuo.nome,
@@ -36,29 +53,44 @@ function enviarFormulario(event) {
         data_registro: `${residuo.data}T${residuo.hora}:00`,
         setor_gerador: residuo.origem,
         setor_destino: "-",
-        responsavel_id: 1
+        responsavel_id: usuario.id
     }
+
+    console.log("Usuário logado:", usuario);
+    console.log("ID responsável:", usuario.id);
+    console.log("Dados enviados:", dadosApi);
 
     fetch("http://127.0.0.1:5000/residuo", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
         },
         body: JSON.stringify(dadosApi)
     })
-        .then(response => response.json())
+        .then(async response => {
+
+            const data = await response.json();
+
+            console.log("Resposta da API:", data);
+
+            if (!response.ok) {
+                throw new Error(data.msg || data.erro || "Erro ao registrar resíduo");
+            }
+
+            return data;
+        })
         .then(data => {
-            console.log(data)
-            mostrarMensagem("Resíduo registrado com sucesso")
-            limparFormulario()
-            carregarResiduos()
-            carregarPesoResiduos()
+            mostrarMensagem("Resíduo registrado com sucesso");
+
+            limparFormulario();
+            carregarResiduos();
+            carregarPesoResiduos();
         })
         .catch(error => {
-            console.error(error)
-            mostrarMensagem("Erro ao registrar resíduo")
+            console.error(error);
+            mostrarMensagem(error.message);
         })
-
 }
 
 function validarCampos(campos) {
