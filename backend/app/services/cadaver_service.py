@@ -52,31 +52,39 @@ def service_obter_cadaveres():
 
     cur.execute("""
         SELECT
-            id,
-            especie,
-            identificacao,
-            idade_anos,
-            peso_kg,
-            data_entrada,
-            status,
-            observacoes,
-            registrado_por,
-            nome_proprietario,
-            causa_obito,
-            destino_id,
-            data_saida
-        FROM cadaveres
-        ORDER BY id DESC
+            c.id,
+            c.especie,
+            c.identificacao,
+            c.idade_anos,
+            c.peso_kg,
+            c.data_entrada,
+            c.status,
+            c.observacoes,
+            c.registrado_por,
+            u.nome AS registrado_por_nome,
+            c.nome_proprietario,
+            c.causa_obito,
+            c.destino_id,
+            c.data_saida
+        FROM cadaveres c
+        LEFT JOIN usuarios u
+            ON c.registrado_por = u.id
+        ORDER BY c.id DESC
     """)
 
     cadaveres = cur.fetchall()
 
-    # Converter data para string para não ter influência de fuso horário
     for cadaver in cadaveres:
+
         if cadaver["data_entrada"]:
-            cadaver["data_entrada"] = cadaver["data_entrada"].strftime("%Y-%m-%d %H:%M:%S")
+            cadaver["data_entrada"] = cadaver["data_entrada"].strftime(
+                "%Y-%m-%d %H:%M:%S"
+            )
+
         if cadaver["data_saida"]:
-                    cadaver["data_saida"] = cadaver["data_saida"].strftime("%Y-%m-%d %H:%M:%S")
+            cadaver["data_saida"] = cadaver["data_saida"].strftime(
+                "%Y-%m-%d %H:%M:%S"
+            )
 
     cur.close()
     conn.close()

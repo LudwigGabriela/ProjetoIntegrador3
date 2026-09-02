@@ -11,11 +11,9 @@ from ..services.residuo_service import (
 
 residuo_bp = Blueprint("residuo", __name__)
 
-
 @residuo_bp.route("/residuo", methods=["POST"])
 @jwt_required()
 def criar_residuo():
-
     dados = request.json
 
     usuario_id = get_jwt_identity()
@@ -30,7 +28,6 @@ def criar_residuo():
         "id": residuo_id
     }), 201
 
-
 @residuo_bp.route("/residuo", methods=["GET"])
 def obter_residuos():
 
@@ -43,7 +40,6 @@ def obter_residuos():
         residuos = service_obter_residuos()
 
     return jsonify(residuos), 200
-
 
 @residuo_bp.route("/residuo/peso-total", methods=["GET"])
 def obter_peso_total():

@@ -55,7 +55,6 @@ function enviarFormulario(event) {
         setor_destino: "-",
         responsavel_id: usuario.id
     }
-
     console.log("Usuário logado:", usuario);
     console.log("ID responsável:", usuario.id);
     console.log("Dados enviados:", dadosApi);

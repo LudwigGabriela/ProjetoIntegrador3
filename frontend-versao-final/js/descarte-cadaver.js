@@ -31,7 +31,24 @@ function enviarFormulario(event) {
         return
     }
 
-    // Requisição para o backend 
+    // Recupera o usuário logado
+    const usuario = JSON.parse(localStorage.getItem("usuario"))
+
+    if (!usuario || !usuario.id) {
+        mostrarMensagem("Usuário não identificado. Faça login novamente.")
+        window.location.href = "login.html"
+        return
+    }
+
+    // Recupera o token JWT
+    const token = localStorage.getItem("token")
+
+    if (!token) {
+        mostrarMensagem("Sessão expirada. Faça login novamente.")
+        window.location.href = "login.html"
+        return
+    }
+
     const dadosApi = {
         especie: cadaver.especie,
         identificacao: cadaver.nome,
@@ -40,32 +57,60 @@ function enviarFormulario(event) {
         data_entrada: `${cadaver.data_entrada}T${cadaver.hora_entrada}:00`,
         status: "congelado",
         observacoes: cadaver.observacao,
-        registrado_por: 1,
+
+        // Usuário que está logado
+        registrado_por: usuario.id,
+
         nome_proprietario: cadaver.nome_proprietario,
         causa_obito: cadaver.causa,
         destino_id: cadaver.destino,
-        data_saida: `${cadaver.data_saida}T${cadaver.hora_saida}:00` // Deixar não obrigatória
+        data_saida: cadaver.data_saida && cadaver.hora_saida
+            ? `${cadaver.data_saida}T${cadaver.hora_saida}:00`
+            : null
     }
+
+    console.log("Usuário logado:", usuario)
+    console.log("ID responsável pelo cadastro:", usuario.id)
+    console.log("Dados enviados:", dadosApi)
 
     fetch("http://127.0.0.1:5000/cadaver", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
         },
         body: JSON.stringify(dadosApi)
     })
-        .then(response => response.json())
+        .then(async response => {
+
+            const data = await response.json()
+
+            console.log("Resposta da API:", data)
+
+            if (!response.ok) {
+                throw new Error(
+                    data.msg ||
+                    data.erro ||
+                    "Erro ao registrar cadáver"
+                )
+            }
+
+            return data
+        })
         .then(data => {
-            console.log(data)
+
             mostrarMensagem("Cadáver registrado com sucesso")
+
             limparFormulario()
             carregarCadaveres()
+
         })
         .catch(error => {
-            console.error(error)
-            mostrarMensagem("Erro ao registrar cadáver")
-        })
 
+            console.error(error)
+            mostrarMensagem(error.message)
+
+        })
 }
 
 function validarCampos(campos) {
@@ -155,7 +200,7 @@ function preencherTabela(cadaveres) {
             <td>${formatarData(cadaver.data_entrada)}</td>
             <td>${formatarData(cadaver.data_saida)}</td>
             <td>${destinos_cadaver[cadaver.destino_id - 1]}</td>
-            <td>${cadaver.registrado_por}</td>
+            <td>${cadaver.registrado_por_nome ?? "-"}</td>
             <td>
                 <button class="btn btn-sm btn-primary btn-editar" data-id="${cadaver.id}">Editar</button>
                 <button class="btn btn-sm btn-danger btn-excluir" data-id="${cadaver.id}">Excluir</button>
