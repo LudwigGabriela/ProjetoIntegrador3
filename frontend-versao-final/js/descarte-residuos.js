@@ -192,7 +192,7 @@ function preencherTabela(residuos) {
             <td>${residuo.descricao}</td>
             <td>${residuo.quantidade}</td>
             <td>${residuo.setor_gerador}</td>
-            <td>${residuo.responsavel_id ?? "-"}</td>
+            <td>${residuo.responsavel_nome ?? "-"}</td>
             <td>${residuo.status}</td>
             <td>
                 <button class="btn btn-sm btn-primary btn-editar" data-id="${residuo.id}">Editar</button>
