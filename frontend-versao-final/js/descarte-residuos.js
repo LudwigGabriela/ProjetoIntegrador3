@@ -104,6 +104,13 @@ function validarCampos(campos) {
         return "Peso deve ser um valor positivo"
     }
 
+    // data e hora não podem estar no futuro
+    const dataHoraEntrada = new Date(`${campos.data}T${campos.hora}`)
+    const agora = new Date()
+    if (dataHoraEntrada > agora) {
+        return "A data e hora do registro não podem estar no futuro"
+    }
+
     return null
 
 }
