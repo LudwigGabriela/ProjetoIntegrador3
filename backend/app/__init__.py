@@ -3,6 +3,7 @@ from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from flask_sqlalchemy import SQLAlchemy
 from app.config import Config
+from datetime import timedelta 
 
 db = SQLAlchemy()
 
@@ -11,6 +12,8 @@ def create_app():
 
     app.config.from_object(Config)
     app.config["JWT_SECRET_KEY"] = "vettrace_chave_super_secreta"
+    app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(days=7)
+
     CORS(app) 
     jwt = JWTManager(app)
 
